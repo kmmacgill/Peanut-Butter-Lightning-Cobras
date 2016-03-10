@@ -21,30 +21,27 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <title>Home Page</title>
     </head>
     <body>
-        <div>
-            <div class="jumbotron">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Action <span class="caret"></span>
-                    </button>
+        <div class="jumbotron">
+            <div class="right">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">Poke your friends mom</a></li>
+                      <li><a href="#">Poke a friend</a></li>
+                      <li><a href="#">Account Settings</a></li>
                     </ul>
-              </div>
+                </div>
             </div>
-            <h1>Welcome to GitCommitted. Prepare yourselves... BATTLE AWAITS</h1>
+            <h1>Welcome to GitCommitted... BATTLE AWAITS</h1>
             <p>BEEP BOP BOOP</p>
     </div>
-        <div class="container">
-            
-        </div>
+       
     </body>
 </html>
