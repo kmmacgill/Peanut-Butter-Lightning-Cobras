@@ -48,18 +48,18 @@
 		<div class="row">
 		  <!-- Your gear -->
 		  <div class="col-md-2">
-		  <img id="tab-u-w" src="/home/justin/Downloads/pixelart/S_Sword01.png" class="center-block"/>
+		  <img id="tab-u-w" src="imgs/S_Sword01.png" class="center-block"/>
 		  </div>
 		  <div class="col-md-1-offset-1 col-md-2">
-		  <img id="tab-u-a" src="/home/justin/Downloads/pixelart/E_Wood02.png" class="center-block"/>
+		  <img id="tab-u-a" src="imgs/E_Wood02.png" class="center-block"/>
 		  </div>
 
           <!-- market gear -->
 		  <div class="col-md-offset-4 col-md-2">
-		  <img id="tab-m-w" src="/home/justin/Downloads/pixelart/S_Sword01.png" class="center-block"/>
+		  <img id="tab-m-w" src="imgs/S_Sword01.png" class="center-block"/>
 		  </div>
 		  <div class="col-md-1-offset-1 col-md-2">
-		  <img id="tab-m-a" src="/home/justin/Downloads/pixelart/E_Wood02.png" class="center-block"/>
+		  <img id="tab-m-a" src="imgs/E_Wood02.png" class="center-block"/>
 		  </div>
 		</div>
 	  </div>
@@ -105,7 +105,7 @@
 		  </div>
 
 		  <div class="col-md-offset-4 col-md-4">
-		  	<form action="#" method="post" id="armory-weapons" style="display: block">  
+		  	<form action="#" method="post" id="market-weapons" style="display: block">  
 		  	  <div class="gear-box">
 		        <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
 		      </div>
@@ -117,15 +117,15 @@
 		      </div>
 		      <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
 		    </form>
-		    <form action="#" method="post" id="armory-weapons" style="display: none">  
-		  	  <div class="gear-box">
-		        <input type="checkbox" name="market-armor" /> <b>Sword of Slicing</b> Value: 100
+		    <form action="#" method="post" id="market-armor" style="display: none">  
+		  	<div class="gear-box">
+		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
 		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="market-armor" /> <b>Sword of Slicing</b> Value: 100
+	  	      <div class="gear-box">
+		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
 		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="market-armor" /> <b>Sword of Slicing</b> Value: 100
+	  	      <div class="gear-box">
+		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
 		      </div>
 		      <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-armor">
 		    </form>
