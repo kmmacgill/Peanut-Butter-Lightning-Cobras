@@ -1,6 +1,6 @@
 <%-- 
-    Document   : inventory
-    Created on : Mar 10, 2016, 7:12:12 AM
+    Document   : home
+    Created on : Mar 10, 2016, 7:10:51 AM
     Author     : jason
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inventory</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <h1>Hello World!</h1>
