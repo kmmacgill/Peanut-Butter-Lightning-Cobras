@@ -1,1 +1,11 @@
-
+.scrollingLeftDiv {
+    float: left;
+    border: 3px solid black;
+    width: 30%;
+    height: 600px;
+    overflow: scroll;
+}
+.right{
+    float: left;
+    width: 70%
+}
