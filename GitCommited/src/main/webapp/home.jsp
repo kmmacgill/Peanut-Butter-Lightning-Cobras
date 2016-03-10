@@ -30,7 +30,7 @@
         <div class="jumbotron">
             <div class="right">
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><image src="imgs/user-icon.png" height="100dp" width="100dp"/>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                       <li><a href="#">Poke your friends mom</a></li>
