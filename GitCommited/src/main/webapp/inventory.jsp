@@ -25,11 +25,11 @@
     <body>
         <div class="scrollingLeftDiv">stuff</div>
         <div class = "right">
-            <div class="container">
+            
                 <div class="jumbotron"> 
                     <h1>Equipped Gear</h1>
                 </div>
-            </div>
+            
         </div>
     </body>
 </html>
