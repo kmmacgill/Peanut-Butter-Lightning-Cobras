@@ -20,16 +20,29 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <style>
+            .floatLeft{
+                border: 3px solid black;
+                float: left;
+                width: 30%;
+            }
+        </style>
         <title>Inventory</title>
     </head>
     <body>
-        <div class="scrollingLeftDiv">stuff</div>
-        <div class = "right">
+        <div class="floatLeft">
             
-                <div class="jumbotron"> 
-                    <h1>Equipped Gear</h1>
-                </div>
-            
+            <div class="scrollingLeftDiv">
+                List of items will be added.
+            </div>
+        </div>
+        <div class = "right">  
+            <div class="jumbotron"> 
+                <h1>Equipped Gear</h1>
+            </div>
+            <div>
+                
+            </div>
         </div>
     </body>
 </html>
