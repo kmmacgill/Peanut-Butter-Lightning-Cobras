@@ -60,19 +60,19 @@
         
         <div class='row'>
             <div class='col-md-3'>
-                <image class="img-responsive center-block" src="imgs/market-icon.png" height="275dp" width="275dp"/>
+                <a href="/GitCommited/market.jsp"> <image class="img-responsive center-block" src="imgs/market-icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Market</h2>
             </div>
             <div class='col-md-3'>
-                <image class="img-responsive center-block" src="imgs/anvil-icon.png" height="275dp" width="275dp"/>
+                <a href="/GitCommited/smithing.jsp"> <image class="img-responsive center-block" src="imgs/anvil-icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Smithy</h2>
             </div>
             <div class='col-md-3'>
-                <image class="img-responsive center-block" src="imgs/battle-Icon.png" height="275dp" width="275dp"/>
+                <a href="/GitCommited/combatSelection.jsp"> <image class="img-responsive center-block" src="imgs/battle-Icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Arena</h2>
             </div>
             <div class='col-md-3'>
-                <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/>
+                <a href="/GitCommited/inventory.jsp"> <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Inventory</h2>
             </div>
         </div>
