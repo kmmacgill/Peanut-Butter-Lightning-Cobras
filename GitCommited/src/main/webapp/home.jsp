@@ -72,8 +72,8 @@
                 <h2 class="text-center">Arena</h2>
             </div>
             <div class='col-md-3'>
-                <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/>
-                <h2 class="text-center">Inventory</h2>
+                <a href="inventory.jsp"><image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/>
+                    <h2 class="text-center">Inventory</h2></a>
             </div>
         </div>
        
