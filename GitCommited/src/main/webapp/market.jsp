@@ -25,6 +25,29 @@
 </head>
 
 <body>
+    <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <image src="imgs/user-icon.png" height="75dp" width="75dp"/>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Account Settings</a></li>
+                          <li><a href="#">Log off</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-7">
+                    <h1 class="text-center">Welcome to GitCommitted...</h1>
+                    <p class="text-center">Ready... FIGHT!</p>
+                </div>
+                
+            </div>
+        </div> 
 
 	<div class="container">
 

@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -44,14 +43,30 @@
                 </div>
                 
                 <div class="col-md-7">
-                    <h1>Welcome to GitCommitted...</h1>
-                    <p>Battle Awaits</p>
+                    <h1 class="text-center">Welcome to GitCommitted...</h1>
+                    <p class="text-center">Ready... FIGHT!</p>
                 </div>
                 
             </div>
+        </div>       
+       
+        <div class="row">
+                <div class="col-md-4">
+                    <image class="img-responsive center-block" src="imgs/HealthBar.PNG" height="25dp" width="500dp"/>
+                    <image class="img-responsive center-block" src="imgs/profile.jpg" height="100dp" width="100dp"/>
+                    <h3 class="text-center">Opponent 1</h3>
+                </div>
+                
+                <div class="col-md-4">
+                    <image class="img-responsive center-block" src="imgs/VS.png" height="200dp" width="200dp"/>
+                </div>
+                
+                <div class="col-md-4">
+                    <image class="img-responsive center-block" src="imgs/HealthBar.PNG" height="25dp" width="500dp"/>
+                    <image class="img-responsive center-block" src="imgs/profile.jpg" height="100dp" width="100dp"/>
+                    <h3 class="text-center">Opponent 2</h3>
+                </div>
         </div>
         
-        
-       
     </body>
 </html>
