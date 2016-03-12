@@ -16,9 +16,6 @@
         <link rel="stylesheet" type="text/css" href="css/home.css">
         <title>Combat Selection</title>
         <style>
-            li{
-                font-size: xx-large;
-            }
             ul{
                 list-style-type: none;
             }
@@ -35,9 +32,36 @@
             .narrow{
                 width: 70%;
             }
+            .large{
+                font-size: xx-large;
+            }
         </style>
     </head>
     <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <a class="navbar-brand" href="home.jsp"><img src="imgs/fight.gif-c200" class="img-circle topLeft" width="30" alt="logo"></a>
+            <div class="container">
+                
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="home.jsp">HOME</a></li>
+                  <li><a href="market.jsp">MARKET</a></li>
+                  <li><a href="smithing.jsp">SMITHY</a></li>
+                  <li class="active"><a href="combatSelection.jsp">ARENA</a></li>
+                  <li><a href="inventory.jsp">INVENTORY</a></li>
+                </ul>
+              </div>
+                
+            </div>
+        </nav>
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-3">
@@ -69,8 +93,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="text-center">
-                        <li>5 Wins</li>
-                        <li>2 Losses</li>
+                        <li class="large">5 Wins</li>
+                        <li class="large">2 Losses</li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -85,8 +109,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="text-center">
-                        <li>5 Wins</li>
-                        <li>2 Losses</li>
+                        <li class="large">5 Wins</li>
+                        <li class="large">2 Losses</li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -101,8 +125,8 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="text-center">
-                        <li>5 Wins</li>
-                        <li>2 Losses</li>
+                        <li class="large">5 Wins</li>
+                        <li class="large">2 Losses</li>
                     </ul>
                 </div>
                 <div class="col-md-4">

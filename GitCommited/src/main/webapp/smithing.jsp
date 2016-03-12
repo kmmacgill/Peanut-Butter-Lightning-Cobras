@@ -7,14 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Bootstrap</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+        <link rel="stylesheet" type="text/css" href="css/home.css">    
 	<style>
 	.options {
 		height: 300px;
@@ -47,14 +47,55 @@
 		right: 0;
 	}
 	</style>
-</head>
+    </head>
 
-<body>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <a class="navbar-brand" href="home.jsp"><img src="imgs/fight.gif-c200" class="img-circle topLeft" width="30" alt="logo"></a>
+            <div class="container">
+                
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
 
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="home.jsp">HOME</a></li>
+                  <li><a href="market.jsp">MARKET</a></li>
+                  <li class="active"><a href="smithing.jsp">SMITHY</a></li>
+                  <li><a href="combatSelection.jsp">ARENA</a></li>
+                  <li><a href="inventory.jsp">INVENTORY</a></li>
+                </ul>
+              </div>
+                
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <image src="imgs/user-icon.png" height="75dp" width="75dp"/>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Account Settings</a></li>
+                          <li><a href="#">Log off</a></li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="col-md-7">
+                    <h1 class="text-center">Smith Something</h1>
+                    <p class="text-center">Ready... FIGHT!</p>
+                </div>
+            </div>
+        </div> 
 	<div class="container">
 
 		<div class="page-header text-center">
-			<h1>Smith Something</h1>
 			<div class="btn-group">
 			  <button type="button" class="btn btn-primary" id="btn-sword">Sword</button>
 			  <button type="button" class="btn btn-primary" id="btn-chest">Chest</button>
@@ -128,6 +169,6 @@
 		});
 	</script>
 
-</body>
+    </body>
 
 </html>

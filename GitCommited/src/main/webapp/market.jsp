@@ -7,178 +7,202 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Market</title>
+            <title>Market</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="css/home.css">
+            <style>
 
-	<style>
+            .gear-box {
+                    margin: 5px;
+            }
 
-	.gear-box {
-		margin: 5px;
-	}
+            </style>
+    </head>
 
-	</style>
-</head>
-
-<body>
-    <div class="jumbotron">
-            <div class="row">
-                <div class="col-md-3">
-                    
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            <image src="imgs/user-icon.png" height="75dp" width="75dp"/>
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Account Settings</a></li>
-                          <li><a href="#">Log off</a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <a class="navbar-brand" href="home.jsp"><img src="imgs/fight.gif-c200" class="img-circle topLeft" width="30" alt="logo"></a>
+            <div class="container">
                 
-                <div class="col-md-7">
-                    <h1 class="text-center">Welcome to GitCommitted...</h1>
-                    <p class="text-center">Ready... FIGHT!</p>
-                </div>
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="home.jsp">HOME</a></li>
+                  <li class="active"><a href="market.jsp">MARKET</a></li>
+                  <li><a href="smithing.jsp">SMITHY</a></li>
+                  <li><a href="combatSelection.jsp">ARENA</a></li>
+                  <li><a href="inventory.jsp">INVENTORY</a></li>
+                </ul>
+              </div>
                 
             </div>
-        </div> 
+        </nav>
+        <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-3">
 
-	<div class="container">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                <image src="imgs/user-icon.png" height="75dp" width="75dp"/>
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Account Settings</a></li>
+                              <li><a href="#">Log off</a></li>
+                            </ul>
+                        </div>
 
-		<div class="page-header">
-			<h1 class="text-center">Market</h1>
-		</div>
+                    </div>
 
-		<div class="row">
-  		  
-  		  <!-- Player's gear -->
-  		  <div class="col-md-6">
-  		    <h3 class="text-center">Your Gear</h3>
-  		  </div>
-  		  
-  		  <!-- Market gear -->
-  		  <div class="col-md-6">
-  		    <h3 class="text-center">Available Gear</h3>
-  		  </div>
-		</div>
+                    <div class="col-md-7">
+                        <h1 class="text-center">Welcome to GitCommitted...</h1>
+                        <p class="text-center">Ready... FIGHT!</p>
+                    </div>
 
-		<div class="row">
-		  <!-- Your gear -->
-		  <div class="col-md-2">
-		  <img id="tab-u-w" src="imgs/S_Sword01.png" class="center-block"/>
-		  </div>
-		  <div class="col-md-1-offset-1 col-md-2">
-		  <img id="tab-u-a" src="imgs/E_Wood02.png" class="center-block"/>
-		  </div>
+                </div>
+            </div> 
 
-          <!-- market gear -->
-		  <div class="col-md-offset-4 col-md-2">
-		  <img id="tab-m-w" src="imgs/S_Sword01.png" class="center-block"/>
-		  </div>
-		  <div class="col-md-1-offset-1 col-md-2">
-		  <img id="tab-m-a" src="imgs/E_Wood02.png" class="center-block"/>
-		  </div>
-		</div>
-	  </div>
+            <div class="container">
 
-	  <div class="container">
-		<!-- Player's actual gear -->
-		<div class="row">
-		  <div class="col-md-4">
+                    <div class="page-header">
+                            <h1 class="text-center">Market</h1>
+                    </div>
 
-		  	<form action="#" method="POST" id="user-weapons" style="display: block">
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="usecr-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
+                    <div class="row">
 
-		      <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-weapons">
-		    </form>
+                      <!-- Player's gear -->
+                      <div class="col-md-6">
+                        <h3 class="text-center">Your Gear</h3>
+                      </div>
 
-   		  	<form action="#" method="POST" id="user-armor" style="display: none">
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
+                      <!-- Market gear -->
+                      <div class="col-md-6">
+                        <h3 class="text-center">Available Gear</h3>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <!-- Your gear -->
+                      <div class="col-md-2">
+                      <img id="tab-u-w" src="imgs/S_Sword01.png" class="center-block"/>
+                      </div>
+                      <div class="col-md-1-offset-1 col-md-2">
+                      <img id="tab-u-a" src="imgs/E_Wood02.png" class="center-block"/>
+                      </div>
+
+              <!-- market gear -->
+                      <div class="col-md-offset-4 col-md-2">
+                      <img id="tab-m-w" src="imgs/S_Sword01.png" class="center-block"/>
+                      </div>
+                      <div class="col-md-1-offset-1 col-md-2">
+                      <img id="tab-m-a" src="imgs/E_Wood02.png" class="center-block"/>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="container">
+                    <!-- Player's actual gear -->
+                    <div class="row">
+                      <div class="col-md-4">
+
+                            <form action="#" method="POST" id="user-weapons" style="display: block">
+                          <div class="gear-box">
+                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="usecr-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+
+                          <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-weapons">
+                        </form>
+
+                            <form action="#" method="POST" id="user-armor" style="display: none">
+                          <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
 
 
-		      <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-armor">
-		    </form>
+                          <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-armor">
+                        </form>
 
 
-		  </div>
+                      </div>
 
-		  <div class="col-md-offset-4 col-md-4">
-		  	<form action="#" method="post" id="market-weapons" style="display: block">  
-		  	  <div class="gear-box">
-		        <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <div class="gear-box">
-		        <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-		      </div>
-		      <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
-		    </form>
-		    <form action="#" method="post" id="market-armor" style="display: none">  
-		  	<div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
-	  	      <div class="gear-box">
-		        <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-		      </div>
-		      <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-armor">
-		    </form>
-		  </div>
-		</div>
+                      <div class="col-md-offset-4 col-md-4">
+                            <form action="#" method="post" id="market-weapons" style="display: block">  
+                              <div class="gear-box">
+                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
+                          </div>
+                          <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
+                        </form>
+                        <form action="#" method="post" id="market-armor" style="display: none">  
+                            <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
+                          <div class="gear-box">
+                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
+                          </div>
+                          <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-armor">
+                        </form>
+                      </div>
+                    </div>
 
-	  <div class="row">
+              <div class="row">
 
-	  </div>
+              </div>
 
-	</div>
+            </div>
 
-	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <!-- JQuery -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-	<!-- set some onclick listeners -->
-	<script>
-	$("#tab-u-w").click(function() { $("#user-weapons").css("display", "block");
-									 $("#user-armor").css("display", "none");});
-	$("#tab-u-a").click(function() { $("#user-weapons").css("display", "none");
-									 $("#user-armor").css("display", "block");});
-	$("#tab-m-w").click(function() { $("#market-weapons").css("display", "block");
-									 $("#market-armor").css("display", "none");});
-	$("#tab-m-a").click(function() { $("#market-weapons").css("display", "none");
-									 $("#market-armor").css("display", "block");});
-	</script>
+            <!-- set some onclick listeners -->
+            <script>
+            $("#tab-u-w").click(function() { $("#user-weapons").css("display", "block");
+                                                                             $("#user-armor").css("display", "none");});
+            $("#tab-u-a").click(function() { $("#user-weapons").css("display", "none");
+                                                                             $("#user-armor").css("display", "block");});
+            $("#tab-m-w").click(function() { $("#market-weapons").css("display", "block");
+                                                                             $("#market-armor").css("display", "none");});
+            $("#tab-m-a").click(function() { $("#market-weapons").css("display", "none");
+                                                                             $("#market-armor").css("display", "block");});
+            </script>
 
-</body>
+    </body>
 
 </html>
