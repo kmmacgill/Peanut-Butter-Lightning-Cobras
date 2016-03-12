@@ -28,20 +28,54 @@
     </head>
     <body>
         <div class="jumbotron">
-            <div class="right">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><image src="imgs/user-icon.png" height="100dp" width="100dp"/>
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Poke your friends mom</a></li>
-                      <li><a href="#">Poke a friend</a></li>
-                      <li><a href="#">Account Settings</a></li>
-                    </ul>
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <image src="imgs/user-icon.png" height="75dp" width="75dp"/>
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Account Settings</a></li>
+                          <li><a href="#">Log off</a></li>
+                        </ul>
+                    </div>
+                    
                 </div>
+                
+                <div class="col-md-7">
+                    <h1>Welcome to GitCommitted...</h1>
+                    <p>Battle Awaits</p>
+                </div>
+                
             </div>
-            <h1>Welcome to GitCommitted... BATTLE AWAITS</h1>
-            <p>BEEP BOP BOOP</p>
-    </div>
+        </div>
+        <div class="row">
+            <div class='col-md-6 col-md-offset-4'>
+                <h2>You've earned 45,753.9 Gold since your last visit!</h2>
+            </div>
+        </div>
+        
+        <div class="row"></div>
+        
+        <div class='row'>
+            <div class='col-md-3'>
+                <a href="/GitCommited/market.jsp"> <image class="img-responsive center-block" src="imgs/market-icon.png" height="275dp" width="275dp"/></a>
+                <h2 class="text-center">Market</h2>
+            </div>
+            <div class='col-md-3'>
+                <a href="/GitCommited/smithing.jsp"> <image class="img-responsive center-block" src="imgs/anvil-icon.png" height="275dp" width="275dp"/></a>
+                <h2 class="text-center">Smithy</h2>
+            </div>
+            <div class='col-md-3'>
+                <a href="/GitCommited/combatSelection.jsp"> <image class="img-responsive center-block" src="imgs/battle-Icon.png" height="275dp" width="275dp"/></a>
+                <h2 class="text-center">Arena</h2>
+            </div>
+            <div class='col-md-3'>
+                <a href="/GitCommited/inventory.jsp"> <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/></a>
+                <h2 class="text-center">Inventory</h2>
+            </div>
+        </div>
        
     </body>
 </html>
