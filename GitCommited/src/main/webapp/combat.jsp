@@ -67,6 +67,11 @@
                     <h3 class="text-center">Opponent 2</h3>
                 </div>
         </div>
+        <div class="row">
+            <div class="col-md-8 center-block">
+                <image class="img-responsive center-block" src="imgs/cmdprompt.gif" height="500dp" width="700dp"/>
+            </div>
+        </div>
         
     </body>
 </html>
