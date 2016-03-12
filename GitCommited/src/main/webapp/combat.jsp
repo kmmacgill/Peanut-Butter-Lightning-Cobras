@@ -52,7 +52,7 @@
        
         <div class="row">
                 <div class="col-md-4">
-                    <image class="img-responsive center-block" src="imgs/HealthBar.PNG" height="25dp" width="500dp"/>
+                    <image class="img-responsive center-block" src="imgs/healthBar.png" height="25dp" width="500dp"/>
                     <image class="img-responsive center-block" src="imgs/profile.jpg" height="100dp" width="100dp"/>
                     <h3 class="text-center">Opponent 1</h3>
                 </div>
@@ -62,14 +62,14 @@
                 </div>
                 
                 <div class="col-md-4">
-                    <image class="img-responsive center-block" src="imgs/HealthBar.PNG" height="25dp" width="500dp"/>
+                    <image class="img-responsive center-block" src="imgs/healthBar.png" height="25dp" width="500dp"/>
                     <image class="img-responsive center-block" src="imgs/profile.jpg" height="100dp" width="100dp"/>
                     <h3 class="text-center">Opponent 2</h3>
                 </div>
         </div>
         <div class="row">
-            <div class="col-md-8 center-block">
-                <image class="img-responsive center-block" src="imgs/cmdprompt.gif" height="500dp" width="700dp"/>
+            <div class="col-md-12">
+                <image class="img-responsive center-block" src="imgs/cmdprompt.gif" height="500dp" width="1500dp"/>
             </div>
         </div>
         

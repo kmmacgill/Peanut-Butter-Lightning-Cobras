@@ -74,7 +74,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary mid">Battle</button>
+                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary mid">Battle</button>
+                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary mid">Battle</button>
+                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
                 </div>
             </div>
         </div>
