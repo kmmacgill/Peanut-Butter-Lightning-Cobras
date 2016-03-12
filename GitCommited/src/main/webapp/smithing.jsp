@@ -7,14 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Bootstrap</title>
+	<title>Smithing</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/home.css">    
+
 	<style>
 	.options {
 		height: 300px;
@@ -47,7 +47,7 @@
 		right: 0;
 	}
 	</style>
-    </head>
+</head>
 
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -85,6 +85,7 @@
                 
             </div>
         </nav>
+        
         <div class="jumbotron">
             <div class="row">
                 <div class="center-block">
@@ -93,9 +94,11 @@
                 </div>
             </div>
         </div> 
+        
 	<div class="container">
 
 		<div class="page-header text-center">
+			<h1>Smith Something</h1>
 			<div class="btn-group">
 			  <button type="button" class="btn btn-primary" id="btn-sword">Sword</button>
 			  <button type="button" class="btn btn-primary" id="btn-chest">Chest</button>
@@ -169,6 +172,6 @@
 		});
 	</script>
 
-    </body>
+</body>
 
 </html>
