@@ -14,6 +14,7 @@
 	<title>Smithing</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/home.css">
 
 	<style>
 	.options {
@@ -69,32 +70,16 @@
                   <li class="active"><a href="smithing.jsp">SMITHY</a></li>
                   <li><a href="combatSelection.jsp">ARENA</a></li>
                   <li><a href="inventory.jsp">INVENTORY</a></li>
-                  <li>
-                      <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <image src="imgs/user-icon.png" height="40dp" width="40dp"/>
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Account Settings</a></li>
-                          <li><a href="#">Log off</a></li>
-                        </ul>
-                      </div>
-                  </li>
+                  <li><a href="#">LOG OFF</a></li>
                 </ul>
               </div>
                 
             </div>
         </nav>
         
-        <div class="jumbotron">
-            <div class="row">
-                <div class="center-block">
-                    <h1 class="text-center">Smith ye your armour</h1>
-                    <p class="text-center">Where Battle Awaits</p>
-                </div>
-            </div>
-        </div> 
-        
+        <br />
+        <br />
+        <br />
 	<div class="container">
 
 		<div class="page-header text-center">
