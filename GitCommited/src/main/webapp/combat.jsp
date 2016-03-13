@@ -41,15 +41,7 @@
                 
             </div>
         </nav>
-        <div class="jumbotron">
-            <div class="row">
-                <div class="center-block">
-                    <h1 class="text-center">FIGHT</h1>
-                    <p class="text-center">Where Battle Awaits</p>
-                </div>
-            </div>
-        </div>     
-       
+        
         <div class="row">
                 <div class="col-md-4">
                     <image class="img-responsive center-block" src="imgs/healthBar.png" height="25dp" width="500dp"/>

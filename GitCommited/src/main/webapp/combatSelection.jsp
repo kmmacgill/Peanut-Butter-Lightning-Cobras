@@ -63,14 +63,6 @@
                 
             </div>
         </nav>
-        <div class="jumbotron">
-            <div class="row">
-                <div class="center-block">
-                    <h1 class="text-center">choose ye your victim</h1>
-                    <p class="text-center">Where Battle Awaits</p>
-                </div>
-            </div>
-        </div> 
         
         <div class="container narrow">
             <div class="row player">

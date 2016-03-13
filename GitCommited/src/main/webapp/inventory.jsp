@@ -71,14 +71,6 @@
                 
             </div>
         </nav>
-        <div class="jumbotron">
-            <div class="row">
-                <div class="center-block">
-                    <h1 class="text-center">manage your inventory</h1>
-                    <p class="text-center">Where Battle Awaits</p>
-                </div>
-            </div>
-        </div>
         
         <div class="row">
             <div class="col-md-3">
