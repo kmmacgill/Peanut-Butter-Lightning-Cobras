@@ -4,6 +4,9 @@
     Author     : jason
 --%>
 
+<!--code to include other html files, could be useful for our -->
+<!--<div w3-include-HTML="content.html">My HTML include will go here.</div>-->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +21,16 @@
     </head>
     <body>
         <div class="jumbotron">
+            <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <image src="imgs/user-icon.png" height="40dp" width="40dp"/>
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                   <li><a href="#">Account Settings</a></li>
+                   <li><a href="#">Log off</a></li>
+                </ul>
+            </div>
+            
             <div class="row">
                 <div class="center-block">
                     <h1 class="text-center">Welcome to GitCommitted</h1>
