@@ -20,42 +20,6 @@
         <title>Home Page</title>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <a class="navbar-brand" href="home.jsp"><img src="imgs/fight.gif-c200" class="img-circle topLeft" width="30" alt="logo"></a>
-            <div class="container">
-                
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="home.jsp">HOME</a></li>
-                  <li><a href="market.jsp">MARKET</a></li>
-                  <li><a href="smithing.jsp">SMITHY</a></li>
-                  <li><a href="combatSelection.jsp">ARENA</a></li>
-                  <li><a href="inventory.jsp">INVENTORY</a></li>
-                  <li><span></span></li>
-                  <li>
-                      <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <image src="imgs/user-icon.png" height="40dp" width="40dp"/>
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Account Settings</a></li>
-                          <li><a href="#">Log off</a></li>
-                        </ul>
-                      </div>
-                  </li>
-                </ul>
-              </div>
-                
-            </div>
-        </nav>
         <div class="jumbotron">
             <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
