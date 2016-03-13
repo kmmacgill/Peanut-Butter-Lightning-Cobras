@@ -57,17 +57,7 @@
                   <li><a href="smithing.jsp">SMITHY</a></li>
                   <li class="active"><a href="combatSelection.jsp">ARENA</a></li>
                   <li><a href="inventory.jsp">INVENTORY</a></li>
-                  <li>
-                      <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <image src="imgs/user-icon.png" height="40dp" width="40dp"/>
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Account Settings</a></li>
-                          <li><a href="#">Log off</a></li>
-                        </ul>
-                      </div>
-                  </li>
+                  <li><a href="#">LOG OFF</a></li>
                 </ul>
               </div>
                 

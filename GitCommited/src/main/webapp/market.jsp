@@ -40,8 +40,8 @@
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="home.jsp">HOME</a></li>
-                  <li><a href="market.jsp">MARKET</a></li>
-                  <li class="active"><a href="smithing.jsp">SMITHY</a></li>
+                  <li class="active"><a href="market.jsp">MARKET</a></li>
+                  <li><a href="smithing.jsp">SMITHY</a></li>
                   <li><a href="combatSelection.jsp">ARENA</a></li>
                   <li><a href="inventory.jsp">INVENTORY</a></li>
                   <li><a href="#">LOG OFF</a></li>
