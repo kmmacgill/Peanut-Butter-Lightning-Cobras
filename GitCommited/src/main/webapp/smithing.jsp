@@ -156,8 +156,8 @@
                 
                 // set the total
                 // base cost is 100, plus x^2, where x is
-                // the number of extras
-                $("#amount").html(Math.pow(sum, 2) + 100);
+                // the number of extras, all times 1.5
+                $("#amount").html(Math.round(Math.pow(sum, 2) + 100) * 1.5);
                 
                 // set the other item attributes
                 $("#fire-amount").html($("#fire").val());
