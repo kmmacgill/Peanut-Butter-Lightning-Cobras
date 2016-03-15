@@ -147,7 +147,7 @@
 	<!-- set js events -->
 	<script type="text/javascript">
             
-            $(".extras").blur(function() {
+            $(".extras").change(function() {
                 var sum = 0;
                 
                 $(".extras").each(function() {
