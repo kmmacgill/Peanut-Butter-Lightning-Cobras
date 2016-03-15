@@ -18,7 +18,7 @@
 
 	<style>
 	.options {
-		height: 300px;
+		height: 350px;
 		width: 500px;
 		position: relative;
 		margin: 0 auto;
@@ -26,7 +26,7 @@
 	.gear {
 		text-align: center;
 		width: 30%;
-	  	height: 30%;
+	  	height: 50%;
   		overflow: auto;
   		margin: auto;
   		position: absolute;
@@ -81,6 +81,11 @@
         <br />
         <br />
 	<div class="container">
+            
+            <form action="SmithIt" method="POST">
+                
+                <!-- so the backend will know what type of item to smith -->
+                <input type="hidden" value="sword" name="type" id="type">
 
 		<div class="page-header text-center">
 			<h1>Smith Something</h1>
@@ -98,33 +103,38 @@
 			<div class="top left">
 				<img src="imgs/S_Fire02.png" /> Fire <span class="dmg">Damage</span>
 				<br />
-				<input type="number" class="form-control">
+				<input type="number" min="0" value="0" class="form-control extras" id="fire" name="fire">
 			</div>
 			<div class="top right">
 				<img src="imgs/S_Ice02.png" /> Cold <span class="dmg">Damage</span>
 				<br />
-				<input type="number" class="form-control">
+				<input type="number" min="0" value="0" class="form-control extras" id="cold" name="cold">
 			</div>
 			<div class="bottom-left">
 				<img src="imgs/S_Thunder04.png" /> Lightning <span class="dmg">Damage</span>
 				<br />
-				<input type="number" class="form-control">
+				<input type="number" min="0" value="0" class="form-control extras" id="lightning" name="lightning">
 			</div>
 			<div class="bottom-right">
-				<img src="imgs/S_Sword10.png" id="quality" /> Quality
+				<img src="imgs/S_Sword10.png" /> Quality
 				<br />
-				<input type="number" class="form-control">
+				<input type="number" min="0" value="0" class="form-control extras" id="quality" name="quality">
 			</div>
 			<div class="gear">
 				<img src="imgs/W_Sword004.png" width="48px" id="result" />
 				<br /><br />
-				<span id="amount">4324</span> Gold
+                                Fire <span class="dmg">Damage</span>: <span id="fire-amount">0</span><br />
+                                Cold <span class="dmg">Damage</span>: <span id="cold-amount">0</span><br />
+                                Lightning <span class="dmg">Damage</span>: <span id="lightning-amount">0</span><br />
+                                Base <span class="type">Damage</span>: <span id="type-amount">10</span><br />
+				Gold: <span id="amount">100</span>
 			</div>
 		</div>
 		<br><br>
 		<center>
 			<button class="btn btn-primary" type="submit">Smith It</button>
 		</center>
+            </form>
 			
 	</div>
 
@@ -134,27 +144,67 @@
 	<!-- Bootstrap JS -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-	<!-- set onclicks -->
+	<!-- set js events -->
 	<script type="text/javascript">
-		$("#btn-sword").click(function() {
-			$("#result").attr("src", "imgs/W_Sword004.png");
-			$(".dmg").html("Damage"); });
-		$("#btn-shield").click(function() {
-			$("#result").attr("src", "imgs/E_Wood03.png");
-			$(".dmg").html("Resistance");
-		});
-		$("#btn-legs").click(function() {
-			$("#result").attr("src", "imgs/A_Shoes03.png");
-			$(".dmg").html("Resistance");
-		});
-		$("#btn-chest").click(function() {
-			$("#result").attr("src", "imgs/A_Armor04.png");
-			$(".dmg").html("Resistance");
-		});
-		$("#btn-helm").click(function() {
-			$("#result").attr("src", "imgs/C_Elm03.png");
-			$(".dmg").html("Resistance");
-		});
+            
+            $(".extras").blur(function() {
+                var sum = 0;
+                
+                $(".extras").each(function() {
+                    sum += Number($(this).val());
+                });
+                
+                // set the total
+                // base cost is 100, plus x^2, where x is
+                // the number of extras
+                $("#amount").html(Math.pow(sum, 2) + 100);
+                
+                // set the other item attributes
+                $("#fire-amount").html($("#fire").val());
+                $("#cold-amount").html($("#cold").val());
+                $("#lightning-amount").html($("#lightning").val());
+                $("#type-amount").html(Number($("#quality").val()) + 10);
+            });
+            
+            $("#btn-sword").click(function() {
+		$("#result").attr("src", "imgs/W_Sword004.png");
+		$(".dmg").html("Damage");
+                $(".type").html("Damage");
+                $("#quality").removeAttr("max");
+                $("#type").val("sword");
+            });
+            $("#btn-shield").click(function() {
+		$("#result").attr("src", "imgs/E_Wood03.png");
+		$(".dmg").html("Resistance");
+                $(".type").html("Block Rate");
+                $("#quality").attr("max", "60");
+                // max value is 60
+                if ($("#quality").val() > 60) {
+                    $("#quality").val(60);
+                }
+                $("#type").val("shield");
+            });
+            $("#btn-legs").click(function() {
+		$("#result").attr("src", "imgs/A_Shoes03.png");
+		$(".dmg").html("Resistance");
+                $(".type").html("Armor Rating");
+                $("#quality").removeAttr("max");
+                $("#type").val("legs");
+            });
+            $("#btn-chest").click(function() {
+		$("#result").attr("src", "imgs/A_Armor04.png");
+		$(".dmg").html("Resistance");
+                $(".type").html("Armor Rating");
+                $("#quality").removeAttr("max");
+                $("#type").val("chest");
+            });
+            $("#btn-helm").click(function() {
+		$("#result").attr("src", "imgs/C_Elm03.png");
+		$(".dmg").html("Resistance");
+                $(".type").html("Armor Rating");
+                $("#quality").removeAttr("max");
+                $("#type").val("helm");
+            });
 	</script>
 
 </body>
