@@ -1,0 +1,50 @@
+CREATE DATABASE git_committed;
+USE git_committed;
+CREATE TABLE gear
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    gear_type VARCHAR(50) NOT NULL,
+    value INT NOT NULL,
+    owned_by INT NOT NULL,
+    base_dmg INT NOT NULL,
+    armor_rating INT NOT NULL,
+    fire_dmg INT NOT NULL,
+    fire_resist INT NOT NULL,
+    poison_dmg INT NOT NULL,
+    poison_resist INT NOT NULL,
+    cold_dmg INT NOT NULL,
+    cold_resist INT NOT NULL,
+    lightning_dmg INT NOT NULL,
+    lightning_resist INT NOT NULL
+);
+CREATE TABLE equipped_gear
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    l_hand_id INT NOT NULL,
+    r_hand_id INT NOT NULL,
+    feet_id INT NOT NULL,
+    chest_id INT NOT NULL,
+    helm_id INT NOT NULL,
+    FOREIGN KEY (l_hand_id) REFERENCES gear(id),
+    FOREIGN KEY (r_hand_id) REFERENCES gear(id),
+    FOREIGN KEY (feet_id) REFERENCES gear(id),
+    FOREIGN KEY (chest_id) REFERENCES gear(id),
+    FOREIGN KEY (helm_id) REFERENCES gear(id)
+);
+CREATE TABLE user
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    gh_username VARCHAR(80) NOT NULL,
+    password VARCHAR(256) NOT NULL,
+    refresh DATETIME NOT NULL,
+    equipped_gear_id INT NOT NULL,
+    gold INT NOT NULL,
+    wins INT NOT NULL,
+    losses INT NOT NULL,
+    FOREIGN KEY (equipped_gear_id) REFERENCES equipped_gear(id)
+);
+ALTER TABLE gear
+ADD FOREIGN KEY (owned_by)
+REFERENCES user(id);
+
