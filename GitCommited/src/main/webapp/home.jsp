@@ -61,7 +61,7 @@
                 <h2 class="text-center">Arena</h2>
             </div>
             <div class='col-md-3'>
-                <a href="/GitCommited/inventory.jsp"> <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="275dp" width="275dp"/></a>
+                <a href="/GitCommited/inventory.jsp"> <image class="img-responsive center-block" src="imgs/pouch-icon.png" height="220dp" width="220dp"/></a>
                 <h2 class="text-center">Inventory</h2>
             </div>
         </div>
