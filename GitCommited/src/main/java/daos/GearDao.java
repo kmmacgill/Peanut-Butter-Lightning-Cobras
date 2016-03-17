@@ -5,6 +5,7 @@
  */
 package daos;
 
+import java.sql.Connection;
 import java.util.List;
 import objects.Gear;
 
@@ -15,7 +16,9 @@ import objects.Gear;
 public class GearDao {
     
     public void createGear(String type, int fire, int cold, int lightning, int quality, int userId) {
-        // SQL stuff to create a gear
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        // do stuff with the connection
     }
     
     public List<Gear> getUserGear(int userId) {
