@@ -20,6 +20,7 @@
         <title>Home Page</title>
     </head>
     <body>
+        <div class="container">
         <div class="jumbotron">
             <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -64,6 +65,6 @@
                 <h2 class="text-center">Inventory</h2>
             </div>
         </div>
-       
+        </div>
     </body>
 </html>
