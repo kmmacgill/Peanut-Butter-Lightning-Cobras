@@ -20,11 +20,11 @@ CREATE TABLE gear
 CREATE TABLE equipped_gear
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    l_hand_id INT NOT NULL,
-    r_hand_id INT NOT NULL,
-    feet_id INT NOT NULL,
-    chest_id INT NOT NULL,
-    helm_id INT NOT NULL,
+    l_hand_id INT,
+    r_hand_id INT,
+    feet_id INT,
+    chest_id INT,
+    helm_id INT,
     FOREIGN KEY (l_hand_id) REFERENCES gear(id),
     FOREIGN KEY (r_hand_id) REFERENCES gear(id),
     FOREIGN KEY (feet_id) REFERENCES gear(id),
