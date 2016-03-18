@@ -26,11 +26,9 @@ public class MysqlConnecter {
         if (db_host == null) {
             db_host = "localhost/";
             
-            // Kory, this is all that needs filled in
-            // load a properties file
-            
-            // username = . . .
-            // password = . . .
+            // local environment
+            username = "jomama";
+            password = "jomama";
             
         } else {
             // openshift environment

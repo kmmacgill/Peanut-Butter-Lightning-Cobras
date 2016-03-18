@@ -18,6 +18,7 @@
     </head>
     <body>
         <div class="container">
+            <h1 class="bg-primary col-md-12 text-center" >WELCOME TO GITCOMMITTED</h1>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h1 class="text-center login-title">Please fill out the form completely</h1>
