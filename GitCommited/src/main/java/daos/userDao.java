@@ -6,6 +6,7 @@
 package daos;
 
 import java.sql.Connection;
+import java.util.Date;
 import objects.User;
 
 /**
@@ -22,7 +23,7 @@ public class userDao {
         newguy.setGold(0);
         newguy.setWins(0);
         newguy.setLosses(0);
-        newguy.setRefreshDate()
+        newguy.setRefreshDate(new Date());
         
         Connection c = new MysqlConnecter().getDBConnection();
         

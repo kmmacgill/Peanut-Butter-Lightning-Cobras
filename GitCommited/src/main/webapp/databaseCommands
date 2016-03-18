@@ -6,16 +6,14 @@ CREATE TABLE gear
     gear_type VARCHAR(50) NOT NULL,
     value INT NOT NULL,
     owned_by INT NOT NULL,
-    base_dmg INT NOT NULL,
-    armor_rating INT NOT NULL,
-    fire_dmg INT NOT NULL,
-    fire_resist INT NOT NULL,
-    poison_dmg INT NOT NULL,
-    poison_resist INT NOT NULL,
-    cold_dmg INT NOT NULL,
-    cold_resist INT NOT NULL,
-    lightning_dmg INT NOT NULL,
-    lightning_resist INT NOT NULL
+    base_dmg INT,
+    armor_rating INT,
+    fire_dmg INT,
+    fire_resist INT,
+    cold_dmg INT,
+    cold_resist INT,
+    lightning_dmg INT,
+    lightning_resist INT
 );
 CREATE TABLE equipped_gear
 (
@@ -51,3 +49,8 @@ REFERENCES user(id);
 CREATE USER 'jomama'@'localhost' IDENTIFIED BY 'jomama';
 GRANT INSERT, SELECT, UPDATE, DELETE ON git_committed.* TO 'jomama'@'localhost';
 FLUSH PRIVILEGES;
+
+
+INSERT INTO equipped_gear VALUES ();
+INSERT INTO user (username, gh_username, password, refresh, equipped_gear_id, gold, wins, losses) VALUES ('user', 'user', 'pass', NOW(), 1, 100, 0, 0);
+

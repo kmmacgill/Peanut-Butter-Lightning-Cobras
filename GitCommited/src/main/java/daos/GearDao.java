@@ -19,7 +19,7 @@ import objects.Gear;
  */
 public class GearDao {
     
-    public void createGear(String type, int fire, int cold, int lightning, int quality, int value, int userId) {
+    public void createGear(String type, int fire, int cold, int lightning, int quality, long value, int userId) {
         
         // get the connection
         Connection c = new MysqlConnecter().getDBConnection();
@@ -40,7 +40,7 @@ public class GearDao {
             PreparedStatement s = c.prepareStatement(sql);
             
             s.setString(1, type);
-            s.setInt(2, value);
+            s.setLong(2, value);
             s.setInt(3, userId);
             s.setInt(4, 10 + quality);
             s.setInt(5, fire);
@@ -48,7 +48,7 @@ public class GearDao {
             s.setInt(7, lightning);
             
             // execute
-            s.executeQuery();
+            s.executeUpdate();
             
         } catch (SQLException ex) {
             Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);

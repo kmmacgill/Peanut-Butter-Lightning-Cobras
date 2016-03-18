@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import daos.GearDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -48,6 +49,10 @@ public class SmithIt extends HttpServlet {
         System.out.println("Lightning: " + lightning);
         System.out.println("Quality: " + quality);
         System.out.println("Cost: " + Math.round(value * 1.5));
+        
+        GearDao dao = new GearDao();
+        
+        dao.createGear(type, fire, cold, lightning, quality, value, 1);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
