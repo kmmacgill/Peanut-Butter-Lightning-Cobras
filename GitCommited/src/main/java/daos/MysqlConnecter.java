@@ -24,20 +24,20 @@ public class MysqlConnecter {
         // check for openshift environment
         String db_host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
         if (db_host == null) {
-            db_host = "localhost/";
+            db_host = "localhost";
             
             // local environment
-            username = "jomama";
-            password = "jomama";
+            this.username = "jomama";
+            this.password = "jomama";
             
         } else {
             // openshift environment
-            username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-            password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+            this.username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+            this.password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         }
         
         // do this either way
-        db_url = "jdbc:mysql://" + db_host + "/git_committed";
+        this.db_url = "jdbc:mysql://" + db_host + "/git_committed";
     }    
     
     public Connection getDBConnection() {
@@ -49,7 +49,7 @@ public class MysqlConnecter {
             Class.forName("com.mysql.jdbc.Driver");
             
             // get the connection to return
-            c = DriverManager.getConnection(db_url, username, password);
+            c = DriverManager.getConnection(this.db_url, this.username, this.password);
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MysqlConnecter.class.getName()).log(Level.SEVERE, null, ex);
