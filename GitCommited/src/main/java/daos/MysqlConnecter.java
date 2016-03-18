@@ -37,7 +37,7 @@ public class MysqlConnecter {
         }
         
         // do this either way
-        db_url = "jdbc:mysql://" + db_host;
+        db_url = "jdbc:mysql://" + db_host + "/git_committed";
     }    
     
     public Connection getDBConnection() {
