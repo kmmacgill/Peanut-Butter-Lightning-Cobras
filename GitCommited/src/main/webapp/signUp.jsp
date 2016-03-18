@@ -27,8 +27,8 @@
                         <form class="form-signup" method="POST" action="Signup">
                             <input type="text" name="user_name" class="form-control" placeholder="Username" required autofocus>
                             <input type="text" name="ghUser_name" class="form-control" placeholder="Github Username" required>
-                            <input type="text" name="password" class="form-control" placeholder="Password" required>
-                            <input type="text" name="passwordConfirm" class="form-control" placeholder="confirm password" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <input type="password" name="passwordConfirm" class="form-control" placeholder="confirm password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                         </form>
                     </div>
