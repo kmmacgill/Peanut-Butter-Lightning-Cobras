@@ -33,9 +33,7 @@ public class Login extends HttpServlet {
         
         // just log in for now. no authentication
         
-        request.getSession().setAttribute("name", "Joe Test");
         
-        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

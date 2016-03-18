@@ -5,6 +5,10 @@
  */
 package objects;
 
+import java.util.Date;
+
+
+
 /**
  *
  * @author jason
@@ -14,7 +18,7 @@ public class User {
     String username;
     String GHUsername;
     String password;
-    String refreshDate;
+    Date refreshDate;
     int equippedGearId;
     int gold;
     int wins;
@@ -23,7 +27,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String GHUsername, String password, String refreshDate, int equippedGearId, int gold, int wins, int losses) {
+    public User(int id, String username, String GHUsername, String password, Date refreshDate, int equippedGearId, int gold, int wins, int losses) {
         this.id = id;
         this.username = username;
         this.GHUsername = GHUsername;
@@ -67,11 +71,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRefreshDate() {
+    public Date getRefreshDate() {
         return refreshDate;
     }
 
-    public void setRefreshDate(String refreshDate) {
+    public void setRefreshDate(Date refreshDate) {
         this.refreshDate = refreshDate;
     }
 
