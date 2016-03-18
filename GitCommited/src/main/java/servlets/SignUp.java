@@ -32,6 +32,12 @@ public class SignUp extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String user_name = request.getParameter("userName");
+        String githubUserName = request.getParameter("ghUser_name");
+        String password = request.getParameter("password");
+        String confPass = request.getParameter("passwordConfirm");
+
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
