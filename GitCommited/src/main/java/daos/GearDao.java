@@ -26,13 +26,29 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "INSERT INTO gear (gear_type, value, owned_by, base_dmg, armor_rating, fire_dmg,)"
-                    + "VALUES (?,?,?,?,?)";
+            String sql;
+            
+            if (type.equals("sword")) {
+                sql = "INSERT INTO gear (gear_type, value, owned_by, base_dmg, fire_dmg, cold_dmg, lightning_dmg)"
+                        + " VALUES (?,?,?,?,?,?,?)";
+            } else {
+                sql = "INSERT INTO gear (gear_type, value, owned_by, armor_rating, fire_resist, cold_resist, lightning_resist"
+                        + " VALUES (?,?,?,?,?,?,?)";
+            }
+            
+            // bind the values
             PreparedStatement s = c.prepareStatement(sql);
             
-            s.setString(, sql);
+            s.setString(1, type);
+            s.setInt(2, value);
+            s.setInt(3, userId);
+            s.setInt(4, 10 + quality);
+            s.setInt(5, fire);
+            s.setInt(6, cold);
+            s.setInt(7, lightning);
             
-            s.execute();
+            // execute
+            s.executeQuery();
             
         } catch (SQLException ex) {
             Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
