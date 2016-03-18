@@ -14,7 +14,7 @@ import java.sql.Date;
  * @author jason
  */
 public class User {
-    int id;
+    int id
     String username;
     String GHUsername;
     String password;
