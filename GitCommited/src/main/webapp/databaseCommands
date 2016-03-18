@@ -48,3 +48,6 @@ ALTER TABLE gear
 ADD FOREIGN KEY (owned_by)
 REFERENCES user(id);
 
+CREATE USER 'jomama'@'localhost' IDENTIFIED BY 'jomama';
+GRANT INSERT, SELECT, UPDATE, DELETE ON git_committed.* TO 'jomama'@'localhost';
+FLUSH PRIVILEGES;
