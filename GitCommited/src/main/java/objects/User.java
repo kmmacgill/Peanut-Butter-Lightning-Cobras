@@ -14,7 +14,7 @@ import java.util.Date;
  * @author jason
  */
 public class User {
-    int id
+    int id;
     String username;
     String GHUsername;
     String password;
