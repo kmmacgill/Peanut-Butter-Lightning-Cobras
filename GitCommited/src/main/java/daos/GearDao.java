@@ -7,7 +7,9 @@ package daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,13 +43,8 @@ public class GearDao {
             // sql
             String sql;
             
-            if (type.equals("sword")) {
-                sql = "INSERT INTO gear (gear_type, value, owned_by, base_dmg, fire_dmg, cold_dmg, lightning_dmg)"
+            sql = "INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning)"
                         + " VALUES (?,?,?,?,?,?,?)";
-            } else {
-                sql = "INSERT INTO gear (gear_type, value, owned_by, armor_rating, fire_resist, cold_resist, lightning_resist"
-                        + " VALUES (?,?,?,?,?,?,?)";
-            }
             
             // bind the values
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -104,6 +101,46 @@ public class GearDao {
      * @return A list of all their gear
      */
     public List<Gear> getUserGear(int userId) {
-        return null;
+        
+        List<Gear> gear = null;
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM gear WHERE owned_by = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, userId);
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                gear = new ArrayList<>();
+                
+                while (rs.next()) {
+                    Gear g = new Gear();
+                    
+                    g.setId(rs.getInt("id"));
+                    g.setGear_type(rs.getString("gear_type"));
+                    g.setValue(rs.getInt("value"));
+                    g.setOwned_by(rs.getInt("owned_by"));
+                    g.setQuality(rs.getInt("quality"));
+                    g.setFire(rs.getInt("fire"));
+                    g.setCold(rs.getInt("cold"));
+                    g.setLightning(rs.getInt("lightning"));
+                    
+                    gear.add(g);
+                }
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return gear;
     }
 }

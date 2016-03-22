@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS git_committed;
+
 CREATE DATABASE git_committed;
 USE git_committed;
 CREATE TABLE gear
@@ -6,14 +8,10 @@ CREATE TABLE gear
     gear_type VARCHAR(50) NOT NULL,
     value INT NOT NULL,
     owned_by INT NOT NULL,
-    base_dmg INT,
-    armor_rating INT,
-    fire_dmg INT,
-    fire_resist INT,
-    cold_dmg INT,
-    cold_resist INT,
-    lightning_dmg INT,
-    lightning_resist INT
+    quality INT NOT NULL,
+    fire INT NOT NULL,
+    cold INT NOT NULL,
+    lightning INT NOT NULL
 );
 CREATE TABLE equipped_gear
 (
