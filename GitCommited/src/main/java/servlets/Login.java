@@ -33,6 +33,9 @@ public class Login extends HttpServlet {
         
         // just log in for now. no authentication
         
+        // MAKE SURE TO SET THE USER's ID ON THE SESSION WHEN THEY LOG IN
+        // WITH THE NAME user_id
+        
         
     }
 
