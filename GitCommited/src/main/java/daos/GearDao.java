@@ -96,6 +96,104 @@ public class GearDao {
     }
     
     /**
+     * Get a list of all the weapons that a user owns
+     * @param userId The user to get gear for
+     * @return A list of all their gear
+     */
+    public List<Gear> getUserWeapons(int userId) {
+        
+        List<Gear> gear = null;
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM gear WHERE gear_type = 'sword' AND owned_by = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, userId);
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                gear = new ArrayList<>();
+                
+                while (rs.next()) {
+                    Gear g = new Gear();
+                    
+                    g.setId(rs.getInt("id"));
+                    g.setGear_type(rs.getString("gear_type"));
+                    g.setValue(rs.getInt("value"));
+                    g.setOwned_by(rs.getInt("owned_by"));
+                    g.setQuality(rs.getInt("quality"));
+                    g.setFire(rs.getInt("fire"));
+                    g.setCold(rs.getInt("cold"));
+                    g.setLightning(rs.getInt("lightning"));
+                    
+                    gear.add(g);
+                }
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return gear;
+    }
+    
+    /**
+     * Get a list of all the weapons that a user owns
+     * @param userId The user to get gear for
+     * @return A list of all their gear
+     */
+    public List<Gear> getUserArmor(int userId) {
+        
+        List<Gear> gear = null;
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM gear WHERE gear_type <> 'sword' AND owned_by = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, userId);
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                gear = new ArrayList<>();
+                
+                while (rs.next()) {
+                    Gear g = new Gear();
+                    
+                    g.setId(rs.getInt("id"));
+                    g.setGear_type(rs.getString("gear_type"));
+                    g.setValue(rs.getInt("value"));
+                    g.setOwned_by(rs.getInt("owned_by"));
+                    g.setQuality(rs.getInt("quality"));
+                    g.setFire(rs.getInt("fire"));
+                    g.setCold(rs.getInt("cold"));
+                    g.setLightning(rs.getInt("lightning"));
+                    
+                    gear.add(g);
+                }
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return gear;
+    }
+    
+    /**
      * Get a list of all the gear that a user owns
      * @param userId The user to get gear for
      * @return A list of all their gear

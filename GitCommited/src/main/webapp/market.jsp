@@ -4,6 +4,9 @@
     Author     : jason
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="objects.Gear"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +86,7 @@
                       <img id="tab-u-a" src="imgs/E_Wood02.png" class="center-block"/>
                       </div>
 
-              <!-- market gear -->
+                      <!-- market gear -->
                       <div class="col-md-offset-4 col-md-2">
                       <img id="tab-m-w" src="imgs/S_Sword01.png" class="center-block"/>
                       </div>
@@ -99,33 +102,24 @@
                       <div class="col-md-4">
 
                             <form action="#" method="POST" id="user-weapons" style="display: block">
-                          <div class="gear-box">
-                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="user-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="usecr-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-
+                              
+                                <c:forEach items="${userWeapons}" var="weapon">
+                                    <div class="gear-box">
+                                        <input type="checkbox" name="user-weapons"> <b>Sword</b> Value: 100
+                                    </div>
+                                </c:forEach>
+                                
+                                
                           <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-weapons">
                         </form>
 
                             <form action="#" method="POST" id="user-armor" style="display: none">
-                          <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
-
+                          
+                                <c:forEach items="${userArmor}" var="armor">
+                                    <div class="gear-box">
+                                        <input type="checkbox" name="user-armor"> <b>${armor.gear_type}</b> Value: 100
+                                    </div>
+                                </c:forEach>
 
                           <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-armor">
                         </form>
@@ -135,27 +129,23 @@
 
                       <div class="col-md-offset-4 col-md-4">
                             <form action="#" method="post" id="market-weapons" style="display: block">  
-                              <div class="gear-box">
-                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="market-weapons" /> <b>Sword of Slicing</b> Value: 100
-                          </div>
-                          <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
-                        </form>
-                        <form action="#" method="post" id="market-armor" style="display: none">  
-                            <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
-                          <div class="gear-box">
-                            <input type="checkbox" name="armor" /> <b>Mega shield</b> Value: 1000
-                          </div>
+                                
+                                <c:forEach items="${storeWeapons}" var="weapon">
+                                    <div class="gear-box">
+                                        <input type="checkbox" name="market-weapons"> <b>Sword</b> Value: 100
+                                    </div>
+                                </c:forEach>
+                                
+                                <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
+                            </form>
+                            <form action="#" method="post" id="market-armor" style="display: none">
+                                
+                                <c:forEach items="${userArmor}" var="armor">
+                                    <div class="gear-box">
+                                        <input type="checkbox" name="user-armor"> <b>${armor.gear_type}</b> Value: 100
+                                    </div>
+                                </c:forEach>
+                                
                           <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-armor">
                         </form>
                       </div>
