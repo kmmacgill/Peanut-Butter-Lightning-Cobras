@@ -43,6 +43,7 @@ public class SmithIt extends HttpServlet {
         //int id = (Integer) request.getSession().getAttribute("user_id");
         
         String type = request.getParameter("type");
+        String name = request.getParameter("name");
         
         long value = Math.round(Math.pow(fire + cold + lightning + quality, 2) + 100);
         
@@ -55,7 +56,7 @@ public class SmithIt extends HttpServlet {
         
         GearDao dao = new GearDao();
         
-        dao.createGear(type, fire, cold, lightning, quality, value, id);
+        dao.createGear(type, name, fire, cold, lightning, quality, value, id);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

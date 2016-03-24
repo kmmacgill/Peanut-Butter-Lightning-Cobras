@@ -5,7 +5,8 @@ USE git_committed;
 CREATE TABLE gear
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    gear_type VARCHAR(50) NOT NULL,
+    gear_type VARCHAR(10) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     value INT NOT NULL,
     owned_by INT NOT NULL,
     quality INT NOT NULL,

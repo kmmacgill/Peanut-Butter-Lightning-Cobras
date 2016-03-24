@@ -34,7 +34,7 @@ public class GearDao {
      * @param value The value in gold of a gear
      * @param userId The user that owns this gear
      */
-    public void createGear(String type, int fire, int cold, int lightning, int quality, long value, int userId) {
+    public void createGear(String type, String name, int fire, int cold, int lightning, int quality, long value, int userId) {
         
         // get the connection
         Connection c = new MysqlConnecter().getDBConnection();
@@ -43,8 +43,8 @@ public class GearDao {
             // sql
             String sql;
             
-            sql = "INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning)"
-                        + " VALUES (?,?,?,?,?,?,?)";
+            sql = "INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning, name)"
+                        + " VALUES (?,?,?,?,?,?,?,?)";
             
             // bind the values
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -55,6 +55,7 @@ public class GearDao {
                 s.setInt(5, fire);
                 s.setInt(6, cold);
                 s.setInt(7, lightning);
+                s.setString(8, name);
                 
                 // execute
                 s.executeUpdate();

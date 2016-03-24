@@ -131,9 +131,18 @@
 			</div>
 		</div>
 		<br><br>
-		<center>
-			<button class="btn btn-primary" type="submit">Smith It</button>
-		</center>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="text" class="form-control" maxlength="100" width="50%" placeholder="Name" name="name">
+                    </div>
+                </div>
+                <div class="row">
+       		    <center>
+                        <br />
+                        <button class="btn btn-primary" type="submit">Smith It</button>
+                        <br />
+       		    </center>
+                </div>
             </form>
 			
 	</div>
