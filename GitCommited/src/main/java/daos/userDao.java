@@ -7,8 +7,10 @@ package daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import objects.User;
@@ -24,12 +26,14 @@ public class userDao {
         newguy.setUsername(userName);
         newguy.setGHUsername(ghUsername);
         newguy.setPassword(password);
-        newguy.setGold(0);
+        newguy.setGold(500);
         newguy.setWins(0);
         newguy.setLosses(0);
         newguy.setRefreshDate(new Date());
         
         Connection c = new MysqlConnecter().getDBConnection();
+        
+        //write the euipped gear stuff here.
         
         try {
             //sql
@@ -56,6 +60,31 @@ public class userDao {
             Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//end of void createUser
+    
+    public void editGold(int userId, int amount) {
+        
+    }
+    
+    public int retrieveGold(int userId) {
+        int goldToReturn = 0;
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "SELECT gold FROM user where id = " + userId;
+
+            try (PreparedStatement state = c.prepareStatement(sql)) {
+                ResultSet rs = state.executeQuery();
+                
+                while(rs.next()){
+                    goldToReturn = rs.getInt("gold");
+                }
+            }         
+            c.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return goldToReturn;
+    }
     
     
     
