@@ -7,6 +7,8 @@ package daos;
 
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,6 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONArray;
@@ -25,13 +28,36 @@ import org.json.JSONObject;
  * @author justin
  */
 public class GetCommits {
+
+    /*
+    public GetCommits() {
+        
+        prop = new Properties();
+        try {
+            prop.load(getClass().getResourceAsStream("/properties/api.properties"));
+            
+            id = prop.getProperty("clientid");
+            secret = prop.getProperty("clientsecret");
+            
+            System.out.println("ID: " + id + " Secret: " + secret);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(GetCommits.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private Properties prop;
+    private String id;
+    private String secret;
+    
+    */
     
     /**
      * Get the list of all the user's repositories
      * @param username The GitHub username
      * @return 
      */
-    private static List<String> getList(String username) {
+    private List<String> getList(String username) {
         
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -107,7 +133,7 @@ public class GetCommits {
      * @param lastRefresh The last week that it was refreshed
      * @return The number of commits
      */
-    public static int getAllCommits(String username, long lastRefresh) {
+    public int getAllCommits(String username, long lastRefresh) {
         int total = 0;
         
         List<String> list = getList(username);
@@ -128,7 +154,7 @@ public class GetCommits {
      * @param repo
      * @return 
      */
-    private static int getRepoCommits(String username, String repo, long lastRefresh) {
+    private int getRepoCommits(String username, String repo, long lastRefresh) {
         
         // return this
         int total = 0;
@@ -185,8 +211,6 @@ public class GetCommits {
                 }
             }
         }
-        
-        System.out.println(jsonStr);
         
         if (jsonStr != null && jsonStr.length() > 0) {
             if (!jsonStr.equals("{}")) {

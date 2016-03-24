@@ -6,6 +6,7 @@
 package servlets;
 
 import daos.GearDao;
+import daos.GetCommits;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
