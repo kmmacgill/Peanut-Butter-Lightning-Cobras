@@ -105,7 +105,7 @@
                               
                                 <c:forEach items="${userWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-weapons"> <b>${weapon.name}</b> Value: ${weapon.value / 2}
+                                        <input type="checkbox" name="user-weapons"> <b>${weapon.name}</b> Value: ${weapon.getHalfValue()}
                                     </div>
                                 </c:forEach>
                                 
@@ -117,7 +117,7 @@
                           
                                 <c:forEach items="${userArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.value / 2}
+                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.getHalfValue()}
                                     </div>
                                 </c:forEach>
 
@@ -140,7 +140,7 @@
                             </form>
                             <form action="#" method="post" id="market-armor" style="display: none">
                                 
-                                <c:forEach items="${userArmor}" var="armor">
+                                <c:forEach items="${storeArmor}" var="armor">
                                     <div class="gear-box">
                                         <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.value}
                                     </div>

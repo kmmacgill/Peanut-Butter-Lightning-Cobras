@@ -20,6 +20,10 @@ public class Gear {
     private int fire;
     private int cold;
     private int lightning;
+    
+    public int getHalfValue() {
+        return value / 2;
+    }
 
     public String getName() {
         return name;

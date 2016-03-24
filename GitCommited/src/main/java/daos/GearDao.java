@@ -160,7 +160,7 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "SELECT * FROM gear WHERE gear_type <> 'sword' AND owned_by = ?";
+            String sql = "SELECT * FROM gear WHERE gear_type != 'sword' AND owned_by = ?";
             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
