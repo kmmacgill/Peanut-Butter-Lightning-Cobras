@@ -34,7 +34,7 @@ CREATE TABLE user
     username VARCHAR(50) NOT NULL UNIQUE,
     gh_username VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(256) NOT NULL,
-    refresh DATETIME NOT NULL,
+    refresh SIGNED BIGINT NOT NULL,
     equipped_gear_id INT NOT NULL,
     gold INT NOT NULL,
     wins INT NOT NULL,
