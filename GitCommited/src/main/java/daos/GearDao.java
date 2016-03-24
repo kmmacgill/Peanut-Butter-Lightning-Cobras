@@ -320,7 +320,7 @@ public class GearDao {
                     g.setLightning(rs.getInt("lightning"));
                     g.setName(rs.getString("name"));
                     
-                    gear.add(g);gearId for the gear to enter
+                    gear.add(g);
                 }
             }
             c.close();

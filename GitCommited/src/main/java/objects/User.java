@@ -18,7 +18,7 @@ public class User {
     String username;
     String GHUsername;
     String password;
-    Date refreshDate;
+    long refreshDate;
     int equippedGearId;
     int gold;
     int wins;
@@ -27,7 +27,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String GHUsername, String password, Date refreshDate, int equippedGearId, int gold, int wins, int losses) {
+    public User(int id, String username, String GHUsername, String password, long refreshDate, int equippedGearId, int gold, int wins, int losses) {
         this.id = id;
         this.username = username;
         this.GHUsername = GHUsername;
@@ -71,11 +71,11 @@ public class User {
         this.password = password;
     }
 
-    public Date getRefreshDate() {
+    public long getRefreshDate() {
         return refreshDate;
     }
 
-    public void setRefreshDate(Date refreshDate) {
+    public void setRefreshDate(long refreshDate) {
         this.refreshDate = refreshDate;
     }
 
