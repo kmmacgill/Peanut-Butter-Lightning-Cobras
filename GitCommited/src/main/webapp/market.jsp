@@ -142,7 +142,7 @@
                                 
                                 <c:forEach items="${storeArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-gear" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.value}
+                                        <input type="checkbox" name="market-gear" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.value}
                                     </div>
                                 </c:forEach>
                                 
