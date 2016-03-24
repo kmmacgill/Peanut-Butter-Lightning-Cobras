@@ -7,7 +7,6 @@ package servlets;
 
 import daos.userDao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +44,7 @@ public class SignUp extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("UserName", user_name);
         
-        response.sendRedirect("home.jsp");
+        request.getRequestDispatcher("home.jsp").forward(request, response);
         
     }
 
