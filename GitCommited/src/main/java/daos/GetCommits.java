@@ -101,6 +101,12 @@ public class GetCommits {
         return null;
     }
     
+    /**
+     * Get the total number of commits made by a user since the last refresh
+     * @param username The user's GitHub username
+     * @param lastRefresh The last week that it was refreshed
+     * @return The number of commits
+     */
     public static int getAllCommits(String username, long lastRefresh) {
         int total = 0;
         
