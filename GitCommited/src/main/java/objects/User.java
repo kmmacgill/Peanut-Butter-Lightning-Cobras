@@ -27,7 +27,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String GHUsername, String password, Long refreshDate, int equippedGearId, int gold, int wins, int losses) {
+
+    public User(int id, String username, String GHUsername, String password, long refreshDate, int equippedGearId, int gold, int wins, int losses) {
         this.id = id;
         this.username = username;
         this.GHUsername = GHUsername;
