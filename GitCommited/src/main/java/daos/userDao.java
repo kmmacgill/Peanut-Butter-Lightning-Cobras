@@ -62,7 +62,17 @@ public class userDao {
     }//end of void createUser
     
     public void editGold(int userId, int amount) {
-        
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "UPDATE user SET gold = gold + " + amount + " WHERE id = " + userId;
+            
+            try (PreparedStatement stmnt = c.prepareStatement(sql)) {
+                stmnt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public int retrieveGold(int userId) {
@@ -86,6 +96,17 @@ public class userDao {
         return goldToReturn;
     }
     
+    
+    public void validateUser(String user, String pass) {
+        //check if the user exists in the DB
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "SELECT ";
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
 }//end of USERDAO class
