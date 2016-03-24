@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.logging.Level;
@@ -33,8 +35,14 @@ public class userDao {
         
         Connection c = new MysqlConnecter().getDBConnection();
         
-        //write the euipped gear stuff here.
-        
+        String insert = "INSERT INTO equipped_gear VALUES ()";
+        try(Statement statement = c.createStatement()) {
+            int equipId = statement.executeUpdate(insert, RETURN_GENERATED_KEYS);
+            newguy.setEquippedGearId(equipId);
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
         try {
             //sql
             String sql;
@@ -116,12 +124,11 @@ public class userDao {
                     //TODO check the hash - hash the pass and check it against rs...
                     //fornow...
                     String userPassword = rs.getString("password");
-                    if (pass == userPassword) {
+                    if (pass.equals(userPassword)) {
                         returnValue = true;
                     }
                 }
             }
-            
         } catch (SQLException ex) {
             Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
         }
