@@ -14,6 +14,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <!-- my theme -->
         <link rel="stylesheet" type="text/css" href="css/home.css">
+        <script src="js/signup.js" type="text/javascript"></script>
         <title>Sign Up Page</title>
     </head>
     <body>
@@ -24,11 +25,11 @@
                     <h1 class="text-center login-title">Please fill out the form completely</h1>
                     <div class="account-wall">
                         <img class="profile-img center-block" src="imgs/user-icon.png" alt="user-icon">
-                        <form class="form-signup" method="POST" action="Signup">
+                        <form class="form-signup" method="POST" action="Signup" onsubmit="return validatePasswords()">
                             <input type="text" name="user_name" class="form-control" placeholder="Username" required autofocus>
                             <input type="text" name="ghUser_name" class="form-control" placeholder="Github Username" required>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
-                            <input type="password" name="passwordConfirm" class="form-control" placeholder="confirm password" required>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                            <input type="password" id="confpassword" name="passwordConfirm" class="form-control" placeholder="confirm password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                         </form>
                     </div>
