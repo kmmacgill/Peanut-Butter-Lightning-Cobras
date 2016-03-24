@@ -6,6 +6,7 @@
 package servlets;
 
 import daos.GearDao;
+import daos.userDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author justin
  */
-@WebServlet(name = "SmithIt", urlPatterns = {"/SmithIt"})
-public class SmithIt extends HttpServlet {
+@WebServlet(name = "Buy", urlPatterns = {"/Buy"})
+public class Buy extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,32 +32,30 @@ public class SmithIt extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String[] ids = request.getParameterValues("market-gear");
         
-        // first off, get the numbers
-        int fire = Integer.parseInt(request.getParameter("fire"));
-        int cold = Integer.parseInt(request.getParameter("cold"));
-        int lightning = Integer.parseInt(request.getParameter("lightning"));
-        int quality = Integer.parseInt(request.getParameter("quality"));
+        userDao uDao = new userDao();
+        GearDao gDao = new GearDao();
         
-        int id = 2;
+        //int userId = (Integer)request.getSession().getAttribute("user_id");
+        int userId = 2; // TODO remove this
         
-        //int id = (Integer) request.getSession().getAttribute("user_id");
+        // sell all the items
+        for (String sid : ids) {
+            
+            int id = Integer.parseInt(sid);
+            int value = gDao.getGear(id).getValue();
+            
+            // remove gold
+            uDao.editGold(userId, -value);
+            
+            // change the owner of the gear
+            gDao.changeOwner(id, userId);
+        }
         
-        String type = request.getParameter("type");
-        String name = request.getParameter("name");
-        
-        long value = Math.round(Math.pow(fire + cold + lightning + quality, 2) + 100);
-        
-        System.out.println("Type: " + type);
-        System.out.println("Fire: " + fire);
-        System.out.println("Cold: " + cold);
-        System.out.println("Lightning: " + lightning);
-        System.out.println("Quality: " + quality);
-        System.out.println("Cost: " + Math.round(value * 1.5));
-        
-        GearDao dao = new GearDao();
-        
-        dao.createGear(type, name, fire, cold, lightning, quality, value, id);
+        // go back to the market
+        response.sendRedirect("Market");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
