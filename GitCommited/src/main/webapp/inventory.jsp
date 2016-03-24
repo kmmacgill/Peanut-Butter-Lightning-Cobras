@@ -4,6 +4,7 @@
     Author     : jason
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,7 +65,7 @@
                   <li><a href="Market">MARKET</a></li>
                   <li><a href="smithing.jsp">SMITHY</a></li>
                   <li><a href="combatSelection.jsp">ARENA</a></li>
-                  <li class="active"><a href="inventory.jsp">INVENTORY</a></li>
+                  <li class="active"><a href="Inventory">INVENTORY</a></li>
                   <li><a href="#">LOG OFF</a></li>
                 </ul>
               </div>
@@ -90,166 +91,40 @@
                 
                 <div class="scrollingLeftDiv">
                     <form action="#" method="POST" id="weapons" style="display: block">
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
+                        
+                        <c:forEach items="${userWeapons}" var="weapon">
+                            <div>
+                                <span><input type="radio" name="weapons"/><b>${weapon.name}</b><img src="imgs/S_Sword01.png"></span>
+                                <div class="myHidden">
+                                    <b>${weapon.name}</b><img src="imgs/S_Sword01.png">
+                                    <p>
+                                        &emsp;Base Damage: ${weapon.quality}<br>
+                                        &emsp;Fire Damage: ${weapon.fire}<br>
+                                        &emsp;Cold Damage: ${weapon.cold}<br>
+                                        &emsp;Lightning Damage: ${weapon.lightning}<br>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
+                        </c:forEach>
+                        
                         <input type="submit" class="btn btn-primary" value="Select">
                     </form>
                     
                     <form action="#" method="POST" id="armor" style="display: none">
-                         <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
+                        <c:forEach items="${userArmor}" var="armor"> 
+                            <div>
+                                <span><input type="radio" name="weapons"/><b>${armor.name}</b><img src="imgs/C_Elm03.png"></span>
+                                <div class="myHidden">
+                                    <b>${armor.name}</b><img src="imgs/C_Elm03.png">
+                                    <p>
+                                        &emsp;Base Armor: ${armor.quality}<br>
+                                        &emsp;Fire Resist: ${armor.fire}<br>
+                                        &emsp;Cold Resist: ${armor.cold}<br>
+                                        &emsp;Lightning Resist: ${armor.lightning}<br>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
+                        </c:forEach>
                         <input type="submit" class="btn btn-primary" value="Select">
                     </form>
                 </div>  
