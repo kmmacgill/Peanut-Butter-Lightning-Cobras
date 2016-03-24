@@ -49,7 +49,7 @@
         
         <div class='row'>
             <div class='col-md-3'>
-                <a href="/GitCommited/market.jsp"> <image class="img-responsive center-block" src="imgs/market-icon.png" height="275dp" width="275dp"/></a>
+                <a href="/GitCommited/Market"> <image class="img-responsive center-block" src="imgs/market-icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Market</h2>
             </div>
             <div class='col-md-3'>
