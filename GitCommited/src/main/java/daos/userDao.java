@@ -35,7 +35,7 @@ public class userDao {
         
         String insert = "INSERT INTO equipped_gear VALUES ()";
         try(Statement statement = c.createStatement()) {
-            int equipId = statement.executeUpdate(insert, RETURN_GENERATED_KEYS);
+            int equipId = statement.executeUpdate(insert, Statement.RETURN_GENERATED_KEYS);
             newguy.setEquippedGearId(equipId);
         } catch (SQLException ex) {
             Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);

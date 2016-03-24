@@ -34,7 +34,7 @@
             
             <div class="row">
                 <div class="center-block">
-                    <h1 class="text-center">Welcome to GitCommitted</h1>
+                    <h1 class="text-center">Welcome to GitCommitted ${sessionScope.userName}</h1>
                     <p class="text-center">Where Battle Awaits</p>
                 </div>
             </div>

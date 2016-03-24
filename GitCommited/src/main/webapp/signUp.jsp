@@ -25,7 +25,7 @@
                     <h1 class="text-center login-title">Please fill out the form completely</h1>
                     <div class="account-wall">
                         <img class="profile-img center-block" src="imgs/user-icon.png" alt="user-icon">
-                        <form class="form-signup" method="POST" action="Signup" onsubmit="return validatePasswords()">
+                        <form class="form-signup" method="POST" action="SignUp" onsubmit="return validatePasswords()">
                             <input type="text" name="user_name" class="form-control" placeholder="Username" required autofocus>
                             <input type="text" name="ghUser_name" class="form-control" placeholder="Github Username" required>
                             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
