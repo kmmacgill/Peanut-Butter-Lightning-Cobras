@@ -96,6 +96,46 @@ public class GearDao {
         }
     }
     
+    public Gear getGear(int gearId) {
+        
+        Gear g = new Gear();
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM gear WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                
+                while (rs.next()) {
+                    
+                    g.setId(rs.getInt("id"));
+                    g.setGear_type(rs.getString("gear_type"));
+                    g.setValue(rs.getInt("value"));
+                    g.setOwned_by(rs.getInt("owned_by"));
+                    g.setQuality(rs.getInt("quality"));
+                    g.setFire(rs.getInt("fire"));
+                    g.setCold(rs.getInt("cold"));
+                    g.setLightning(rs.getInt("lightning"));
+                    g.setName(rs.getString("name"));
+                }
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return g;
+    }
+    
     /**
      * Get a list of all the weapons that a user owns
      * @param userId The user to get gear for

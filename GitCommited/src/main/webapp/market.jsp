@@ -101,11 +101,11 @@
                     <div class="row">
                       <div class="col-md-4">
 
-                            <form action="#" method="POST" id="user-weapons" style="display: block">
+                            <form action="Sell" method="POST" id="user-weapons" style="display: block">
                               
                                 <c:forEach items="${userWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-weapons"> <b>${weapon.name}</b> Value: ${weapon.getHalfValue()}
+                                        <input type="checkbox" name="user-weapons" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.getHalfValue()}
                                     </div>
                                 </c:forEach>
                                 
@@ -113,11 +113,11 @@
                           <input type="submit" class="btn btn-primary" value="Sell selected" name="sell-weapons">
                         </form>
 
-                            <form action="#" method="POST" id="user-armor" style="display: none">
+                            <form action="Sell" method="POST" id="user-armor" style="display: none">
                           
                                 <c:forEach items="${userArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.getHalfValue()}
+                                        <input type="checkbox" name="user-armor" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.getHalfValue()}
                                     </div>
                                 </c:forEach>
 
@@ -128,21 +128,21 @@
                       </div>
 
                       <div class="col-md-offset-4 col-md-4">
-                            <form action="#" method="post" id="market-weapons" style="display: block">  
+                            <form action="Buy" method="post" id="market-weapons" style="display: block">  
                                 
                                 <c:forEach items="${storeWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="market-weapons"> <b>${weapon.name}</b> Value: ${weapon.value}
+                                        <input type="checkbox" name="market-weapons" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.value}
                                     </div>
                                 </c:forEach>
                                 
                                 <input type="submit" class="btn btn-primary" value="Buy selected" name="buy-weapons">
                             </form>
-                            <form action="#" method="post" id="market-armor" style="display: none">
+                            <form action="Buy" method="post" id="market-armor" style="display: none">
                                 
                                 <c:forEach items="${storeArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.value}
+                                        <input type="checkbox" name="user-armor" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.value}
                                     </div>
                                 </c:forEach>
                                 
