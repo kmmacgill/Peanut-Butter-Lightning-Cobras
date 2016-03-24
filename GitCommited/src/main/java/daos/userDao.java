@@ -97,12 +97,25 @@ public class userDao {
     }
     
     
-    public void validateUser(String user, String pass) {
+    public boolean validateUser(String user, String pass) {
         //check if the user exists in the DB
         Connection c = new MysqlConnecter().getDBConnection();
         try {
             String sql;
-            sql = "SELECT ";
+            sql = "SELECT password FROM user WHERE username = ?";
+            
+            try(PreparedStatement st = c.prepareStatement(sql)) {
+                st.setString(1, user);               
+                ResultSet rs = st.executeQuery();
+                
+                if (rs == null) {
+                    return false;
+                }
+                else {
+                    //TODO check the hash - hash the pass and check it against rs...
+                }
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
         }
