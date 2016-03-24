@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import daos.userDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,9 +36,12 @@ public class SignUp extends HttpServlet {
         String user_name = request.getParameter("userName");
         String githubUserName = request.getParameter("ghUser_name");
         String password = request.getParameter("password");
-        String confPass = request.getParameter("passwordConfirm");
-
         
+        
+        
+
+        userDao udao = new userDao();
+        udao.createUser(user_name, githubUserName, password);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

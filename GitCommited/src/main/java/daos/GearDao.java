@@ -331,4 +331,114 @@ public class GearDao {
         
         return gear;
     }
+    public void setLHand(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET l_hand_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+                
+                
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void setRHand(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET r_hand_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+                
+                
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void setFeet(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET feet_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+                
+                
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void setChest(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET chest_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+                
+                
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void setHelm(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET helm_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+                
+                
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
