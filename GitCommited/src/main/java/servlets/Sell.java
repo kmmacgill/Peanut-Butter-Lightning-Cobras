@@ -8,7 +8,6 @@ package servlets;
 import daos.GearDao;
 import daos.userDao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,25 +33,32 @@ public class Sell extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String[] ids = request.getParameterValues("user-weapons");
+        String[] ids = request.getParameterValues("user-gear");
         
         userDao uDao = new userDao();
         GearDao gDao = new GearDao();
         
-        // then they are selling weapons
-        if (ids != null) {
+        //int userId = (Integer)request.getSession().getAttribute("user_id");
+        int userId = 2; // TODO remove this
+        
+        // sell all the items
+        for (String sid : ids) {
             
-            for (String sid : ids) {
-                
-                int id = Integer.parseInt(sid);
-                
-                int value = gDao.getGear(id).getHalfValue();
-            }
+            int id = Integer.parseInt(sid);
             
-        } else {
-            // then they are selling armor
+            // users sell for half value
+            int value = gDao.getGear(id).getHalfValue();
+            
+            // add gold
+            uDao.editGold(userId, value);
+            
+            // change the owner of the gear
+            // 1 -> store
+            gDao.changeOwner(id, 1);
         }
         
+        // go back to the market
+        response.sendRedirect("Market");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

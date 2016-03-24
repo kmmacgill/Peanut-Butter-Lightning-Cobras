@@ -105,7 +105,7 @@
                               
                                 <c:forEach items="${userWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-weapons" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.getHalfValue()}
+                                        <input type="checkbox" name="user-gear" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.getHalfValue()}
                                     </div>
                                 </c:forEach>
                                 
@@ -117,7 +117,7 @@
                           
                                 <c:forEach items="${userArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.getHalfValue()}
+                                        <input type="checkbox" name="user-gear" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.getHalfValue()}
                                     </div>
                                 </c:forEach>
 
@@ -132,7 +132,7 @@
                                 
                                 <c:forEach items="${storeWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="market-weapons" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.value}
+                                        <input type="checkbox" name="market-gear" value="${weapon.id}"> <b>${weapon.name}</b> Value: ${weapon.value}
                                     </div>
                                 </c:forEach>
                                 
@@ -142,7 +142,7 @@
                                 
                                 <c:forEach items="${storeArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.value}
+                                        <input type="checkbox" name="user-gear" value="${armor.id}"> <b>${armor.name}</b> Value: ${armor.value}
                                     </div>
                                 </c:forEach>
                                 
