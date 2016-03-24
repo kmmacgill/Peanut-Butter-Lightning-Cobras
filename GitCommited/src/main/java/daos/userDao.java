@@ -53,7 +53,7 @@ public class userDao {
                 s.setString(1, newguy.getUsername());
                 s.setString(2, newguy.getGHUsername());
                 s.setString(3, newguy.getPassword());
-                s.setDate(4, newguy.getRefreshDate());
+                s.setLong(4, newguy.getRefreshDate());
                 s.setInt(5, newguy.getEquippedGearId());
                 s.setInt(6, newguy.getGold());
                 s.setInt(7, newguy.getWins());

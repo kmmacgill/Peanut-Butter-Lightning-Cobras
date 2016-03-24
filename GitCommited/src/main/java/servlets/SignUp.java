@@ -45,7 +45,7 @@ public class SignUp extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("UserName", user_name);
         
-        
+        response.sendRedirect("home.jsp");
         
     }
 
