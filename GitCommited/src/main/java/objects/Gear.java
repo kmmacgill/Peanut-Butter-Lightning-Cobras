@@ -13,12 +13,21 @@ public class Gear {
     
     private int id;
     private String gear_type;
+    private String name;
     private int value;
     private int owned_by;
     private int quality;
     private int fire;
     private int cold;
     private int lightning;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;

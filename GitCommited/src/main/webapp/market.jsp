@@ -105,7 +105,7 @@
                               
                                 <c:forEach items="${userWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-weapons"> <b>Sword</b> Value: 100
+                                        <input type="checkbox" name="user-weapons"> <b>${weapon.name}</b> Value: ${weapon.value / 2}
                                     </div>
                                 </c:forEach>
                                 
@@ -117,7 +117,7 @@
                           
                                 <c:forEach items="${userArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor"> <b>${armor.gear_type}</b> Value: 100
+                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.value / 2}
                                     </div>
                                 </c:forEach>
 
@@ -132,7 +132,7 @@
                                 
                                 <c:forEach items="${storeWeapons}" var="weapon">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="market-weapons"> <b>Sword</b> Value: 100
+                                        <input type="checkbox" name="market-weapons"> <b>${weapon.name}</b> Value: ${weapon.value}
                                     </div>
                                 </c:forEach>
                                 
@@ -142,7 +142,7 @@
                                 
                                 <c:forEach items="${userArmor}" var="armor">
                                     <div class="gear-box">
-                                        <input type="checkbox" name="user-armor"> <b>${armor.gear_type}</b> Value: 100
+                                        <input type="checkbox" name="user-armor"> <b>${armor.name}</b> Value: ${armor.value}
                                     </div>
                                 </c:forEach>
                                 

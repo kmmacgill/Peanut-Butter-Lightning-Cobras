@@ -132,6 +132,7 @@ public class GearDao {
                     g.setFire(rs.getInt("fire"));
                     g.setCold(rs.getInt("cold"));
                     g.setLightning(rs.getInt("lightning"));
+                    g.setName(rs.getString("name"));
                     
                     gear.add(g);
                 }
@@ -181,6 +182,7 @@ public class GearDao {
                     g.setFire(rs.getInt("fire"));
                     g.setCold(rs.getInt("cold"));
                     g.setLightning(rs.getInt("lightning"));
+                    g.setName(rs.getString("name"));
                     
                     gear.add(g);
                 }
@@ -230,6 +232,7 @@ public class GearDao {
                     g.setFire(rs.getInt("fire"));
                     g.setCold(rs.getInt("cold"));
                     g.setLightning(rs.getInt("lightning"));
+                    g.setName(rs.getString("name"));
                     
                     gear.add(g);
                 }
