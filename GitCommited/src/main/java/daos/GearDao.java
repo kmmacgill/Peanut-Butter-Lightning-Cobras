@@ -25,6 +25,7 @@ public class GearDao {
      * Creates a new row in the gear table
      * @param type A string that says what type of gear this is. Valid options are:
      * 'sword', 'shield', 'legs', 'chest', or 'helm'
+     * @param name The name of the item
      * @param fire The value of fire damage or fire resistance (depending on if
      * it's armor or a weapon)
      * @param cold Same as fire, but for cold
@@ -65,6 +66,51 @@ public class GearDao {
         } catch (SQLException ex) {
             Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * @param equippedGearId The user's id
+     * @return A list of gear that the user has equipped. This will come in this
+     * order: left hand, right hand, helm, legs, chest
+     */
+    public List<Gear> getEquippedGear(int equippedGearId) {
+        
+        List<Gear> gear = null;
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM equipped_gear WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, equippedGearId);
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                gear = new ArrayList<>();
+                
+                GearDao gDao = new GearDao();
+                
+                while (rs.next()) {
+                    
+                    gear.add(gDao.getGear(rs.getInt("l_hand_id")));
+                    gear.add(gDao.getGear(rs.getInt("r_hand_id")));
+                    gear.add(gDao.getGear(rs.getInt("helm_id")));
+                    gear.add(gDao.getGear(rs.getInt("feet_id")));
+                    gear.add(gDao.getGear(rs.getInt("chest_id")));
+                }
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return gear;
     }
     
     /**
