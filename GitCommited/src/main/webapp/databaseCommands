@@ -34,7 +34,7 @@ CREATE TABLE user
     username VARCHAR(50) NOT NULL UNIQUE,
     gh_username VARCHAR(80) NOT NULL UNIQUE,
     password VARCHAR(256) NOT NULL,
-    refresh DATETIME NOT NULL,
+    refresh SIGNED BIGINT NOT NULL,
     equipped_gear_id INT NOT NULL,
     gold INT NOT NULL,
     wins INT NOT NULL,
@@ -52,8 +52,8 @@ FLUSH PRIVILEGES;
 
 INSERT INTO equipped_gear VALUES ();
 INSERT INTO equipped_gear VALUES ();
-INSERT INTO user (username, gh_username, password, refresh, equipped_gear_id, gold, wins, losses) VALUES ('store', 'store', 'youwillneverguess', NOW(), 1, 0, 0, 0);
-INSERT INTO user (username, gh_username, password, refresh, equipped_gear_id, gold, wins, losses) VALUES ('user', 'user', 'pass', NOW(), 2, 100, 0, 0);
+INSERT INTO user (username, gh_username, password, refresh, equipped_gear_id, gold, wins, losses) VALUES ('store', 'store', 'youwillneverguess', 0, 1, 0, 0, 0);
+INSERT INTO user (username, gh_username, password, refresh, equipped_gear_id, gold, wins, losses) VALUES ('user', 'user', 'pass', 0, 2, 100, 0, 0);
 INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning, name) VALUES ('sword', 200, 1, 10, 0, 0, 0, 'Item1');
 INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning, name) VALUES ('sword', 200, 1, 10, 0, 0, 0, 'Item2');
 INSERT INTO gear (gear_type, value, owned_by, quality, fire, cold, lightning, name) VALUES ('helm', 200, 1, 10, 0, 0, 0, 'Item3');

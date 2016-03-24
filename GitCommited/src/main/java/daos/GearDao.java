@@ -331,4 +331,135 @@ public class GearDao {
         
         return gear;
     }
+    
+    /**
+     * Set the left hand equipped gear
+     * @param equippedGearId The user to get gear for gearId for the gear to enter
+     * @return None
+     */
+    public void setLHand(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET l_hand_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);   
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Set the right hand equipped gear
+     * @param equippedGearId The user to get gear for gearId for the gear to enter
+     * @return None
+     */
+    public void setRHand(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET r_hand_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);   
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Set the feet equipped gear
+     * @param equippedGearId The user to get gear for gearId for the gear to enter
+     * @return None
+     */
+    public void setFeet(int equippedGearId, int gearId){
+        
+        // get the connection
+                    
+              Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET feet_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);      
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Set the chest equipped gear
+     * @param equippedGearId The user to get gear for gearId for the gear to enter
+     * @return None
+     */
+    public void setChest(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET chest_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);   
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Set the chest equipped gear
+     * @param equippedGearId The user to get gear for gearId for the gear to enter
+     * @return None
+     */
+    public void setHelm(int equippedGearId, int gearId){
+        
+        // get the connection
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "UPDATE SET helm_id = ? WHERE id = ?";
+            
+            // bind the value
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, gearId);
+                s.setInt(2, equippedGearId);
+            }
+            c.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
