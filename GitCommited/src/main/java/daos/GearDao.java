@@ -320,7 +320,7 @@ public class GearDao {
                     g.setLightning(rs.getInt("lightning"));
                     g.setName(rs.getString("name"));
                     
-                    gear.add(g);
+                    gear.add(g);gearId for the gear to enter
                 }
             }
             c.close();
@@ -334,8 +334,8 @@ public class GearDao {
     
     /**
      * Set the left hand equipped gear
-     * @param equippedGearId The user to get gear for gearId for the gear to enter
-     * @return None
+     * @param equippedGearId The user to get gear for
+     * @param gearId
      */
     public void setLHand(int equippedGearId, int gearId){
         
@@ -360,8 +360,8 @@ public class GearDao {
     
     /**
      * Set the right hand equipped gear
-     * @param equippedGearId The user to get gear for gearId for the gear to enter
-     * @return None
+     * @param equippedGearId The user to get gear for
+     * @param gearId
      */
     public void setRHand(int equippedGearId, int gearId){
         
@@ -386,8 +386,8 @@ public class GearDao {
     
     /**
      * Set the feet equipped gear
-     * @param equippedGearId The user to get gear for gearId for the gear to enter
-     * @return None
+     * @param equippedGearId The user to get gear for
+     * @param gearId
      */
     public void setFeet(int equippedGearId, int gearId){
         
@@ -413,8 +413,8 @@ public class GearDao {
     
     /**
      * Set the chest equipped gear
-     * @param equippedGearId The user to get gear for gearId for the gear to enter
-     * @return None
+     * @param equippedGearId The user to get gear for
+     * @param gearId
      */
     public void setChest(int equippedGearId, int gearId){
         
@@ -439,8 +439,8 @@ public class GearDao {
     
     /**
      * Set the chest equipped gear
-     * @param equippedGearId The user to get gear for gearId for the gear to enter
-     * @return None
+     * @param equippedGearId The user to get gear for 
+     * @param gearId 
      */
     public void setHelm(int equippedGearId, int gearId){
         
