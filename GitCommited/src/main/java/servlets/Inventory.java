@@ -7,7 +7,6 @@ package servlets;
 
 import daos.GearDao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,10 +43,12 @@ public class Inventory extends HttpServlet {
         // get the user's items
         List<Gear> userWeapons = dao.getUserWeapons(userId);
         List<Gear> userArmor = dao.getUserArmor(userId);
+        List<Gear> equippedGear = dao.getEquippedGear(userId);
         
         // set the attributes
         request.setAttribute("userWeapons", userWeapons);
         request.setAttribute("userArmor", userArmor);
+        request.setAttribute("equippedGear", equippedGear);
         
         // forward on to the jsp
         request.getRequestDispatcher("inventory.jsp").forward(request, response);
