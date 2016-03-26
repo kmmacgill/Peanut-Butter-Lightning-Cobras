@@ -5,6 +5,7 @@ package servlets;
  * and open the template in the editor.
  */
 
+import daos.userDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,11 +32,18 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // just log in for now. no authentication
+        String userName = request.getParameter("user_name");
+        String password = request.getParameter("password");
         
-        // MAKE SURE TO SET THE USER's ID ON THE SESSION WHEN THEY LOG IN
-        // WITH THE NAME user_id
-        
+        userDao uDao = new userDao();
+        if (uDao.validateUser(userName, password)) {
+            request.getSession().setAttribute("userName", userName);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        }
+        else {
+            //TODO: redirect to login page and tell em credentials are bad.
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
         
     }
 

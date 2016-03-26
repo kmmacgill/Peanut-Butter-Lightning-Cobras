@@ -9,11 +9,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import objects.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -25,7 +25,11 @@ public class userDao {
         User newguy = new User();
         newguy.setUsername(userName);
         newguy.setGHUsername(ghUsername);
-        newguy.setPassword(password);
+        
+        //hash the password and set it as the user's password.
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12)); // 12 is the number of times it will be hashed, don't go higher or infinite loop due to getting bigger than DB size
+        
+        newguy.setPassword(hashed);
         newguy.setGold(500);
         newguy.setWins(0);
         newguy.setLosses(0);
@@ -39,9 +43,18 @@ public class userDao {
          ***
          *****************************************************************************************/
         String insert = "INSERT INTO equipped_gear VALUES ()";
-        try(Statement statement = c.createStatement()) {
-            int equipId = statement.executeUpdate(insert, Statement.RETURN_GENERATED_KEYS);
-            newguy.setEquippedGearId(equipId);
+        try(PreparedStatement statement = c.prepareStatement(insert, RETURN_GENERATED_KEYS)) {
+            
+            statement.executeUpdate(); 
+            
+            ResultSet generatedKeysResultSet = statement.getGeneratedKeys();
+            //first row of this set will contain generated keys
+            generatedKeysResultSet.next(); //execturing next() method to navigate to first row of generated keys.
+            int id = generatedKeysResultSet.getInt(1); // since our row contains only one column, we can get it this way.
+            
+            //now we give the newguy his ID
+            newguy.setEquippedGearId(id);
+            
         } catch (SQLException ex) {
             Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -118,16 +131,15 @@ public class userDao {
             
             try(PreparedStatement st = c.prepareStatement(sql)) {
                 st.setString(1, user);               
-                ResultSet rs = st.executeQuery();
-                
-                if (rs == null) {
+                ResultSet hashedPass = st.executeQuery();
+                System.out.println(hashedPass);
+                if (hashedPass == null) {
                     returnValue = false;
                 }
                 else {
-                    //TODO check the hash - hash the pass and check it against rs...
-                    //fornow...
-                    String userPassword = rs.getString("password");
-                    if (pass.equals(userPassword)) {
+                    String userPassword = hashedPass.getNString("password"); //IS THROWING EXCEPTION.
+                    System.out.println("THIS IS THE PASSWORD:" + userPassword);
+                    if (BCrypt.checkpw(pass, userPassword)) {
                         returnValue = true;
                     }
                 }

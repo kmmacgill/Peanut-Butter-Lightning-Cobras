@@ -41,7 +41,7 @@
         </div>
         <div class="row">
             <div class='center-block'>
-                <h2 class="text-center">You've earned 45,753.9 Gold since your last visit!</h2>
+                <h2 class="text-center">You currently have  Gold!</h2>
             </div>
         </div>
         
