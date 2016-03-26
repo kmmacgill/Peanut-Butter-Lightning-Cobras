@@ -33,6 +33,11 @@ public class userDao {
         
         Connection c = new MysqlConnecter().getDBConnection();
         
+        /******************************************************************************************
+         ***
+         * This is the part that makes the equipped_gear id. not functioning completely though...
+         ***
+         *****************************************************************************************/
         String insert = "INSERT INTO equipped_gear VALUES ()";
         try(Statement statement = c.createStatement()) {
             int equipId = statement.executeUpdate(insert, Statement.RETURN_GENERATED_KEYS);
