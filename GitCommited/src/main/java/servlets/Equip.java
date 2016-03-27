@@ -8,7 +8,6 @@ package servlets;
 import daos.GearDao;
 import daos.userDao;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +19,8 @@ import objects.Gear;
  *
  * @author jason
  */
-@WebServlet(name = "Inventory", urlPatterns = {"/Inventory"})
-public class Inventory extends HttpServlet {
+@WebServlet(name = "Equip", urlPatterns = {"/Equip"})
+public class Equip extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,26 +35,38 @@ public class Inventory extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String id = request.getParameter("gear");
+        
+        userDao uDao = new userDao();
+        GearDao gDao = new GearDao();
+        
         //int userId = (Integer)request.getSession().getAttribute("user_id");
         int userId = 2; // TODO remove this
-        
-        GearDao dao = new GearDao();
-        userDao uDao = new userDao();
-        
         //int equippedGearId = uDao.getEquitppedGearId(userId);
-                
-        // get the user's items
-        List<Gear> userWeapons = dao.getUserWeapons(userId);
-        List<Gear> userArmor = dao.getUserArmor(userId);
-        List<Gear> equippedGear = dao.getEquippedGear(userId);
+        int gearId = Integer.parseInt(id);
         
-        // set the attributes
-        request.setAttribute("userWeapons", userWeapons);
-        request.setAttribute("userArmor", userArmor);
-        request.setAttribute("equippedGear", equippedGear);
+        //figure out what type of gear is being equipped
+        Gear item = gDao.getGear(gearId);
+        String itemType = item.getGear_type();
         
-        // forward on to the jsp
-        request.getRequestDispatcher("inventory.jsp").forward(request, response);
+        if(null != itemType)switch (itemType) {
+            case "helm":
+                gDao.setHelm(gearId, userId);
+                break;
+            case "chest":
+                gDao.setChest(gearId, userId);
+                break;
+            case "sword":
+                gDao.setLHand(gearId, userId);
+                break;
+            case "shield":
+                gDao.setRHand(gearId, userId);
+                break;
+            default:
+                gDao.setFeet(gearId, userId);
+                break;
+        }
+      request.getRequestDispatcher("Inventory").forward(request, response);  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
