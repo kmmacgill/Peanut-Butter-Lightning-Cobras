@@ -3,11 +3,14 @@
     Created on : Mar 10, 2016, 7:12:59 AM
     Author     : jason
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${sessionScope.userName == null}">
+            <c:redirect url="login.jsp"></c:redirect>
+        </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -57,7 +60,7 @@
                   <li><a href="smithing.jsp">SMITHY</a></li>
                   <li class="active"><a href="combatSelection.jsp">ARENA</a></li>
                   <li><a href="Inventory">INVENTORY</a></li>
-                  <li><a href="#">LOG OFF</a></li>
+                  <li><a href="Logout">LOG OFF</a></li>
                 </ul>
               </div>
                 

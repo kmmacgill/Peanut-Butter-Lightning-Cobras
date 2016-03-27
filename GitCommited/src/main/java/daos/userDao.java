@@ -129,16 +129,21 @@ public class userDao {
             String sql;
             sql = "SELECT password FROM user WHERE username = ?";
             
+            String userPassword = "DEFAULT STRING";
+            
             try(PreparedStatement st = c.prepareStatement(sql)) {
                 st.setString(1, user);               
                 ResultSet hashedPass = st.executeQuery();
-                System.out.println(hashedPass);
                 if (hashedPass == null) {
                     returnValue = false;
                 }
                 else {
-                    String userPassword = hashedPass.getNString("password"); //IS THROWING EXCEPTION.
-                    System.out.println("THIS IS THE PASSWORD:" + userPassword);
+                    while(hashedPass.next()) {
+                    String tablesPass = hashedPass.getString("password");
+                    userPassword = tablesPass;
+                    System.out.println("The returned password: " + ":::" + tablesPass + ":::");
+                }
+                    //String userPassword = hashedPass.getString("password"); //IS THROWING EXCEPTION.
                     if (BCrypt.checkpw(pass, userPassword)) {
                         returnValue = true;
                     }

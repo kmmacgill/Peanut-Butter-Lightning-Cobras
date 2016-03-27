@@ -3,11 +3,14 @@
     Created on : Mar 10, 2016, 7:11:47 AM
     Author     : jason
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <c:if test="${sessionScope.userName == null}">
+            <c:redirect url="login.jsp"></c:redirect>
+        </c:if>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -70,7 +73,7 @@
                   <li class="active"><a href="smithing.jsp">SMITHY</a></li>
                   <li><a href="combatSelection.jsp">ARENA</a></li>
                   <li><a href="Inventory">INVENTORY</a></li>
-                  <li><a href="#">LOG OFF</a></li>
+                  <li><a href="Logout">LOG OFF</a></li>
                 </ul>
               </div>
                 
