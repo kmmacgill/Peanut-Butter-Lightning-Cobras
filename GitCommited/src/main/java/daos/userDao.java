@@ -120,6 +120,10 @@ public class userDao {
         return goldToReturn;
     }
     
+    public int getEquitppedGearId(int userId) {
+        String id = "SELECT equipped_gear_id FROM user where id = " + userId;
+        return Integer.parseInt(id);
+    }
     
     public boolean validateUser(String user, String pass) {
         boolean returnValue = false;

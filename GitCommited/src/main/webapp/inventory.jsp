@@ -93,11 +93,11 @@
                 
                 
                 <div class="scrollingLeftDiv">
-                    <form action="#" method="POST" id="weapons" style="display: block">
+                    <form action="Equip" method="POST" id="weapons" style="display: block">
                         
                         <c:forEach items="${userWeapons}" var="weapon">
                             <div>
-                                <span><input type="radio" name="weapons"/><b>${weapon.name}</b><img src="imgs/S_Sword01.png"></span>
+                                <span><input type="radio" name="gear" value="${weapon.id}"/><b>${weapon.name}</b><img src="imgs/S_Sword01.png"></span>
                                 <div class="myHidden">
                                     <b>${weapon.name}</b><img src="imgs/S_Sword01.png">
                                     <p>
@@ -113,10 +113,10 @@
                         <input type="submit" class="btn btn-primary" value="Select">
                     </form>
                     
-                    <form action="#" method="POST" id="armor" style="display: none">
+                    <form action="Equip" method="POST" id="armor" style="display: none">
                         <c:forEach items="${userArmor}" var="armor"> 
                             <div>
-                                <span><input type="radio" name="weapons"/><b>${armor.name}</b><img src="imgs/C_Elm03.png"></span>
+                                <span><input type="radio" name="gear" value="${armor.id}"/><b>${armor.name}</b><img src="imgs/C_Elm03.png"></span>
                                 <div class="myHidden">
                                     <b>${armor.name}</b><img src="imgs/C_Elm03.png">
                                     <p>
