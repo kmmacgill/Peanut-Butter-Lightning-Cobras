@@ -23,22 +23,22 @@ public class MysqlConnecter {
         
         // check for openshift environment
         String db_host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-        if (db_host == null) {
+        if (db_host == null || db_host.equals("")) {
             db_host = "localhost";
             
             // local environment
             this.username = "jomama";
             this.password = "jomama";
             
-            this.db_url = "jdbc:mysql://" + db_host + "/git_committed";
+            this.db_url = "jdbc:mysql://" + db_host + "/" + DB_NAME;
             
         } else {
             // openshift environment
+            String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
             this.username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
             this.password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-            this.portNum = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
             
-            this.db_url = "jdbc:mysql://" + db_host + ":" + portNum + "/git_committed";
+            this.db_url = "jdbc:mysql://" + db_host + ":" + port + "/" + DB_NAME;
         }   
 
     }
@@ -66,8 +66,8 @@ public class MysqlConnecter {
         return c;
     }
     
-    String username;
-    String password;
-    String portNum;
-    String db_url;
+    private String username;
+    private String password;
+    private String db_url;
+    private static final String DB_NAME = "git_committed";
 }
