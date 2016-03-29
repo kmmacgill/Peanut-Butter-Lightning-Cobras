@@ -34,7 +34,6 @@ public class MysqlConnecter {
             
         } else {
             // openshift environment
-            db_host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
             this.username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
             this.password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
             this.portNum = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
@@ -42,7 +41,11 @@ public class MysqlConnecter {
             this.db_url = "jdbc:mysql://" + db_host + ":" + portNum + "/git_committed";
         }   
 
-    }    
+    }
+    
+    public String getString() {
+        return "db_url: " + this.db_url + " username: " + this.username + " password: " + this.password;
+    }
     
     public Connection getDBConnection() {
         
