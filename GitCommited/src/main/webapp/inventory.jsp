@@ -155,7 +155,7 @@
                         &emsp;Cold Damage: <c:out value="${equippedGear[1].cold}"/><br />
                         &emsp;Lightning Damage: <c:out value="${equippedGear[1].lightning}"/><br />
                     </div>        
-                    <div class="col-md-4"><img class="center-block imgHeight" src="imgs/A_Armour02.png"><br />
+                    <div class="col-md-4"><img class="center-block imgHeight" src="imgs/A_Armour02.png">
                         <b><c:out value="${equippedGear[0].name}"/></b><br />
                         &emsp;Base Armor: <c:out value="${equippedGear[3].quality}"/><br />
                         &emsp;Fire Resist: <c:out value="${equippedGear[3].fire}"/><br />
