@@ -32,6 +32,7 @@ public class MysqlConnecter {
             
         } else {
             // openshift environment
+            db_host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
             this.username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
             this.password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         }
