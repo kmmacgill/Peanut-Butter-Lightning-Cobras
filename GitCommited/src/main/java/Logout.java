@@ -1,12 +1,11 @@
-package servlets;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import daos.userDao;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author justin
+ * @author kmmac
  */
-@WebServlet(urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(urlPatterns = {"/Logout"})
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,20 +30,8 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String userName = request.getParameter("user_name");
-        String password = request.getParameter("password");
-        
-        userDao uDao = new userDao();
-        if (uDao.validateUser(userName, password)) {
-            request.getSession().setAttribute("userName", userName);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        }
-        else {
-            //TODO: redirect to login page and tell em credentials are bad.
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
-        
+        request.getSession().invalidate();
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

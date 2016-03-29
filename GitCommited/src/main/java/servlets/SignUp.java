@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,19 +32,16 @@ public class SignUp extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String user_name = request.getParameter("userName");
+        String userName = request.getParameter("user_name");
         String githubUserName = request.getParameter("ghUser_name");
         String password = request.getParameter("password");
 
         userDao udao = new userDao();
-        udao.createUser(user_name, githubUserName, password);
+        udao.createUser(userName, githubUserName, password);
         
         // redirect user to homepage after logging them in.
-        HttpSession session = request.getSession();
-        session.setAttribute("UserName", user_name);
-        
-        request.getRequestDispatcher("home.jsp").forward(request, response);
-        
+        request.getSession().setAttribute("userName", userName);
+        request.getRequestDispatcher("home.jsp").forward(request, response);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

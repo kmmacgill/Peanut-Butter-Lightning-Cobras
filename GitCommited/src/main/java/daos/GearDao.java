@@ -97,11 +97,11 @@ public class GearDao {
                 
                 while (rs.next()) {
                     
+                    gear.add(gDao.getGear(rs.getInt("helm_id")));
                     gear.add(gDao.getGear(rs.getInt("l_hand_id")));
                     gear.add(gDao.getGear(rs.getInt("r_hand_id")));
-                    gear.add(gDao.getGear(rs.getInt("helm_id")));
-                    gear.add(gDao.getGear(rs.getInt("feet_id")));
                     gear.add(gDao.getGear(rs.getInt("chest_id")));
+                    gear.add(gDao.getGear(rs.getInt("feet_id")));
                 }
             }
             c.close();
@@ -344,7 +344,7 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "UPDATE SET l_hand_id = ? WHERE id = ?";
+            String sql = "UPDATE equipped_gear SET l_hand_id = ? WHERE id = ?";
             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -370,7 +370,7 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "UPDATE SET r_hand_id = ? WHERE id = ?";
+            String sql = "UPDATE equipped_gear SET r_hand_id = ? WHERE id = ?";
             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -397,7 +397,7 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "UPDATE SET feet_id = ? WHERE id = ?";
+            String sql = "UPDATE equipped_gear SET feet_id = ? WHERE id = ?";
             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -423,7 +423,7 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "UPDATE SET chest_id = ? WHERE id = ?";
+            String sql = "UPDATE equipped_gear SET chest_id = ? WHERE id = ?";
             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
@@ -449,8 +449,8 @@ public class GearDao {
         
         try {
             // sql
-            String sql = "UPDATE SET helm_id = ? WHERE id = ?";
-            
+            String sql = "UPDATE equipped_gear SET helm_id = ? WHERE id = ?";
+             
             // bind the value
             try (PreparedStatement s = c.prepareStatement(sql)) {
                 s.setInt(1, gearId);

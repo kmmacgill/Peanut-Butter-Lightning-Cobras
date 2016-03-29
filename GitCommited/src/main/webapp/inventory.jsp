@@ -4,10 +4,14 @@
     Author     : jason
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${sessionScope.userName == null}">
+            <c:redirect url="login.jsp"></c:redirect>
+        </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- my theme -->
@@ -35,6 +39,9 @@
             }
             .left{
                 float: right;
+            }
+            .right{
+                float: left;
             }
             .scrollingLeftDiv {
                 height: 600px;
@@ -64,8 +71,8 @@
                   <li><a href="Market">MARKET</a></li>
                   <li><a href="smithing.jsp">SMITHY</a></li>
                   <li><a href="combatSelection.jsp">ARENA</a></li>
-                  <li class="active"><a href="inventory.jsp">INVENTORY</a></li>
-                  <li><a href="#">LOG OFF</a></li>
+                  <li class="active"><a href="Inventory">INVENTORY</a></li>
+                  <li><a href="Logout">LOG OFF</a></li>
                 </ul>
               </div>
                 
@@ -89,167 +96,41 @@
                 
                 
                 <div class="scrollingLeftDiv">
-                    <form action="#" method="POST" id="weapons" style="display: block">
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
+                    <form action="Equip" method="POST" id="weapons" style="display: block">
+                        
+                        <c:forEach items="${userWeapons}" var="weapon">
+                            <div>
+                                <span><input type="radio" name="gear" value="${weapon.id}"/><b>${weapon.name}</b><img src="imgs/S_Sword01.png"></span>
+                                <div class="myHidden">
+                                    <b>${weapon.name}</b><img src="imgs/S_Sword01.png">
+                                    <p>
+                                        &emsp;Base Damage: ${weapon.quality}<br />
+                                        &emsp;Fire Damage: ${weapon.fire}<br />
+                                        &emsp;Cold Damage: ${weapon.cold}<br />
+                                        &emsp;Lightning Damage: ${weapon.lightning}<br />
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Blade of Glory</b><img src="imgs/S_Sword03.png"></span>
-                            <div class="myHidden">
-                                <b>Blade of Glory</b><img src="imgs/S_Sword03.png">
-                                <p>
-                                    &emsp;Base Damage: 1200<br>
-                                    &emsp;Fire Damage: 1200<br>
-                                    &emsp;Poison Damage: 1200<br>
-                                    &emsp;Cold Damage: 1200<br>
-                                    &emsp;Lightning Damage: 1200<br>
-                                </p>
-                            </div>
-                        </div>
+                        </c:forEach>
+                        
                         <input type="submit" class="btn btn-primary" value="Select">
                     </form>
                     
-                    <form action="#" method="POST" id="armor" style="display: none">
-                         <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
+                    <form action="Equip" method="POST" id="armor" style="display: none">
+                        <c:forEach items="${userArmor}" var="armor"> 
+                            <div>
+                                <span><input type="radio" name="gear" value="${armor.id}"/><b>${armor.name}</b><img src="imgs/C_Elm03.png"></span>
+                                <div class="myHidden">
+                                    <b>${armor.name}</b><img src="imgs/C_Elm03.png">
+                                    <p>
+                                        &emsp;Base Armor: ${armor.quality}<br />
+                                        &emsp;Fire Resist: ${armor.fire}<br />
+                                        &emsp;Cold Resist: ${armor.cold}<br />
+                                        &emsp;Lightning Resist: ${armor.lightning}<br />
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <span><input type="radio" name="weapons" value=""/><b>Helm of the Ram</b><img src="imgs/C_Elm03.png"></span>
-                            <div class="myHidden">
-                                <b>Helm of The Ram</b><img src="imgs/C_Elm03.png">
-                                <p>
-                                    &emsp;Base Armor: 1200<br>
-                                    &emsp;Fire Resist: 1200<br>
-                                    &emsp;Poison Resist: 1200<br>
-                                    &emsp;Cold Resist: 1200<br>
-                                    &emsp;Lightning Resist: 1200<br>
-                                </p>
-                            </div>
-                        </div>
+                        </c:forEach>
                         <input type="submit" class="btn btn-primary" value="Select">
                     </form>
                 </div>  
@@ -259,15 +140,60 @@
                 <h1 class="text-center">Equipped Gear</h1>
                 <div class="row imgHeight"></div>
                 <div class="row inventory">
-                    <img class="center-block imgHeight" src="imgs/C_Elm03.png">
+                    <span><img class="center-block imgHeight" src="imgs/C_Elm03.png"></span>
+                    <div class="myHidden left">
+                        <b><c:out value="${equippedGear[0].name}"/></b>
+                        <p>
+                            &emsp;Base Armor: <c:out value="${equippedGear[0].quality}"/><br />
+                            &emsp;Fire Resist: <c:out value="${equippedGear[0].fire}"/><br />
+                            &emsp;Cold Resist: <c:out value="${equippedGear[0].cold}"/><br />
+                            &emsp;Lightning Resist: <c:out value="${equippedGear[0].lightning}"/><br />
+                        </p>
+                    </div>
                 </div>
                 <div class="row inventory">
-                    <div class="col-md-4"><img class="left imgHeight" src="imgs/S_Sword01.png"></div>
-                    <div class="col-md-4"><img class="center-block imgHeight" src="imgs/A_Armour02.png"></div>
-                    <div class="col-md-4"><img class="imgHeight" src="imgs/E_Wood02.png"></div>
+                    <span><div class="col-md-4"><img class="imgHeight" src="imgs/S_Sword01.png"></div></span>
+                    <div class="myHidden right">
+                        <b><c:out value="${equippedGear[1].name}"/></b>
+                        <p>
+                            &emsp;Base Damage: <c:out value="${equippedGear[1].quality}"/><br />
+                            &emsp;Fire Damage: <c:out value="${equippedGear[1].fire}"/><br />
+                            &emsp;Cold Damage: <c:out value="${equippedGear[1].cold}"/><br />
+                            &emsp;Lightning Damage: <c:out value="${equippedGear[1].lightning}"/><br />
+                        </p>
+                    </div>
+                    <span><div class="col-md-4"><img class="left center-block imgHeight" src="imgs/A_Armour02.png"></div></span>
+                    <div class="myHidden right" >
+                        <b><c:out value="${equippedGear[0].name}"/></b>
+                        <p>
+                            &emsp;Base Armor: <c:out value="${equippedGear[3].quality}"/><br />
+                            &emsp;Fire Resist: <c:out value="${equippedGear[3].fire}"/><br />
+                            &emsp;Cold Resist: <c:out value="${equippedGear[3].cold}"/><br />
+                            &emsp;Lightning Resist: <c:out value="${equippedGear[3].lightning}"/><br />
+                        </p>
+                    </div>
+                    <span><div class="col-md-4"><img class="left imgHeight" src="imgs/E_Wood02.png"></div></span>
+                    <div class="myHidden right">
+                        <b><c:out value="${equippedGear[1].name}"/></b>
+                        <p>
+                            &emsp;Base Damage: <c:out value="${equippedGear[2].quality}"/><br />
+                            &emsp;Fire Damage: <c:out value="${equippedGear[2].fire}"/><br />
+                            &emsp;Cold Damage: <c:out value="${equippedGear[2].cold}"/><br />
+                            &emsp;Lightning Damage: <c:out value="${equippedGear[2].lightning}"/><br />
+                        </p>
+                    </div>
                 </div>
                 <div class="row inventory">
-                    <img class="center-block imgHeight" src="imgs/A_Shoes03.png">
+                    <span><img class="center-block imgHeight" src="imgs/A_Shoes03.png"></span>
+                    <div class="myHidden left">
+                        <b><c:out value="${equippedGear[0].name}"/></b>
+                        <p>
+                            &emsp;Base Armor: <c:out value="${equippedGear[4].quality}"/><br />
+                            &emsp;Fire Resist: <c:out value="${equippedGear[4].fire}"/><br />
+                            &emsp;Cold Resist: <c:out value="${equippedGear[4].cold}"/><br />
+                            &emsp;Lightning Resist: <c:out value="${equippedGear[4].lightning}"/><br />
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

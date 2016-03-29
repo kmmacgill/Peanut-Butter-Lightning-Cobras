@@ -1,24 +1,27 @@
-package servlets;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package servlets;
 
+import daos.GearDao;
 import daos.userDao;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objects.Gear;
 
 /**
  *
- * @author justin
+ * @author jason
  */
-@WebServlet(urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "Inventory", urlPatterns = {"/Inventory"})
+public class Inventory extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,20 +34,28 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         
-        String userName = request.getParameter("user_name");
-        String password = request.getParameter("password");
+        //int userId = (Integer)request.getSession().getAttribute("user_id");
+        int userId = 2; // TODO remove this
         
+        GearDao dao = new GearDao();
         userDao uDao = new userDao();
-        if (uDao.validateUser(userName, password)) {
-            request.getSession().setAttribute("userName", userName);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        }
-        else {
-            //TODO: redirect to login page and tell em credentials are bad.
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
         
+        //int equippedGearId = uDao.getEquitppedGearId(userId);
+                
+        // get the user's items
+        List<Gear> userWeapons = dao.getUserWeapons(userId);
+        List<Gear> userArmor = dao.getUserArmor(userId);
+        List<Gear> equippedGear = dao.getEquippedGear(userId);
+        
+        // set the attributes
+        request.setAttribute("userWeapons", userWeapons);
+        request.setAttribute("userArmor", userArmor);
+        request.setAttribute("equippedGear", equippedGear);
+        
+        // forward on to the jsp
+        request.getRequestDispatcher("inventory.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
