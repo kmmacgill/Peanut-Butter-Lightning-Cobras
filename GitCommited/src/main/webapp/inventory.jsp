@@ -136,64 +136,48 @@
                 </div>  
             </div>
             
-            <div class = "col-md-9">  
+            <div class = "col-md-9 text-center">  
                 <h1 class="text-center">Equipped Gear</h1>
-                <div class="row imgHeight"></div>
+                <div class="row rowHeight"></div>
                 <div class="row inventory">
-                    <span><img class="center-block imgHeight" src="imgs/C_Elm03.png"></span>
-                    <div class="myHidden left">
-                        <b><c:out value="${equippedGear[0].name}"/></b>
-                        <p>
-                            &emsp;Base Armor: <c:out value="${equippedGear[0].quality}"/><br />
-                            &emsp;Fire Resist: <c:out value="${equippedGear[0].fire}"/><br />
-                            &emsp;Cold Resist: <c:out value="${equippedGear[0].cold}"/><br />
-                            &emsp;Lightning Resist: <c:out value="${equippedGear[0].lightning}"/><br />
-                        </p>
+                    <img class="center-block imgHeight" src="imgs/C_Elm03.png"><br />
+                    <b><c:out value="${equippedGear[0].name}"/></b><br />
+                        &emsp;Base Armor: <c:out value="${equippedGear[0].quality}"/><br />
+                        &emsp;Fire Resist: <c:out value="${equippedGear[0].fire}"/><br />
+                        &emsp;Cold Resist: <c:out value="${equippedGear[0].cold}"/><br />
+                        &emsp;Lightning Resist: <c:out value="${equippedGear[0].lightning}"/><br /><br />
+                </div>
+                <div class="row inventory">
+                    <div class="text-right col-md-4"><img class="left imgHeight" src="imgs/S_Sword01.png"><br /><br /><br />
+                        <b><c:out value="${equippedGear[1].name}"/></b><br />
+                        &emsp;Base Damage: <c:out value="${equippedGear[1].quality}"/><br />
+                        &emsp;Fire Damage: <c:out value="${equippedGear[1].fire}"/><br />
+                        &emsp;Cold Damage: <c:out value="${equippedGear[1].cold}"/><br />
+                        &emsp;Lightning Damage: <c:out value="${equippedGear[1].lightning}"/><br />
+                    </div>        
+                    <div class="col-md-4"><img class="center-block imgHeight" src="imgs/A_Armour02.png"><br />
+                        <b><c:out value="${equippedGear[0].name}"/></b><br />
+                        &emsp;Base Armor: <c:out value="${equippedGear[3].quality}"/><br />
+                        &emsp;Fire Resist: <c:out value="${equippedGear[3].fire}"/><br />
+                        &emsp;Cold Resist: <c:out value="${equippedGear[3].cold}"/><br />
+                        &emsp;Lightning Resist: <c:out value="${equippedGear[3].lightning}"/><br />
+                    </div>        
+                    <div class="col-md-4">
+                        <img class="imgHeight" src="imgs/E_Wood02.png"><br />
+                        <b><c:out value="${equippedGear[1].name}"/></b><br />
+                        &emsp;Base Damage: <c:out value="${equippedGear[2].quality}"/><br />
+                        &emsp;Fire Damage: <c:out value="${equippedGear[2].fire}"/><br />
+                        &emsp;Cold Damage: <c:out value="${equippedGear[2].cold}"/><br />
+                        &emsp;Lightning Damage: <c:out value="${equippedGear[2].lightning}"/><br />
                     </div>
                 </div>
                 <div class="row inventory">
-                    <span><div class="col-md-4"><img class="imgHeight" src="imgs/S_Sword01.png"></div></span>
-                    <div class="myHidden right">
-                        <b><c:out value="${equippedGear[1].name}"/></b>
-                        <p>
-                            &emsp;Base Damage: <c:out value="${equippedGear[1].quality}"/><br />
-                            &emsp;Fire Damage: <c:out value="${equippedGear[1].fire}"/><br />
-                            &emsp;Cold Damage: <c:out value="${equippedGear[1].cold}"/><br />
-                            &emsp;Lightning Damage: <c:out value="${equippedGear[1].lightning}"/><br />
-                        </p>
-                    </div>
-                    <span><div class="col-md-4"><img class="left center-block imgHeight" src="imgs/A_Armour02.png"></div></span>
-                    <div class="myHidden right" >
-                        <b><c:out value="${equippedGear[0].name}"/></b>
-                        <p>
-                            &emsp;Base Armor: <c:out value="${equippedGear[3].quality}"/><br />
-                            &emsp;Fire Resist: <c:out value="${equippedGear[3].fire}"/><br />
-                            &emsp;Cold Resist: <c:out value="${equippedGear[3].cold}"/><br />
-                            &emsp;Lightning Resist: <c:out value="${equippedGear[3].lightning}"/><br />
-                        </p>
-                    </div>
-                    <span><div class="col-md-4"><img class="left imgHeight" src="imgs/E_Wood02.png"></div></span>
-                    <div class="myHidden right">
-                        <b><c:out value="${equippedGear[1].name}"/></b>
-                        <p>
-                            &emsp;Base Damage: <c:out value="${equippedGear[2].quality}"/><br />
-                            &emsp;Fire Damage: <c:out value="${equippedGear[2].fire}"/><br />
-                            &emsp;Cold Damage: <c:out value="${equippedGear[2].cold}"/><br />
-                            &emsp;Lightning Damage: <c:out value="${equippedGear[2].lightning}"/><br />
-                        </p>
-                    </div>
-                </div>
-                <div class="row inventory">
-                    <span><img class="center-block imgHeight" src="imgs/A_Shoes03.png"></span>
-                    <div class="myHidden left">
-                        <b><c:out value="${equippedGear[0].name}"/></b>
-                        <p>
-                            &emsp;Base Armor: <c:out value="${equippedGear[4].quality}"/><br />
-                            &emsp;Fire Resist: <c:out value="${equippedGear[4].fire}"/><br />
-                            &emsp;Cold Resist: <c:out value="${equippedGear[4].cold}"/><br />
-                            &emsp;Lightning Resist: <c:out value="${equippedGear[4].lightning}"/><br />
-                        </p>
-                    </div>
+                    <img class="center-block imgHeight" src="imgs/A_Shoes03.png"><br />
+                        <b><c:out value="${equippedGear[0].name}"/></b><br />
+                        &emsp;Base Armor: <c:out value="${equippedGear[4].quality}"/><br />
+                        &emsp;Fire Resist: <c:out value="${equippedGear[4].fire}"/><br />
+                        &emsp;Cold Resist: <c:out value="${equippedGear[4].cold}"/><br />
+                        &emsp;Lightning Resist: <c:out value="${equippedGear[4].lightning}"/><br />
                 </div>
             </div>
         </div>
