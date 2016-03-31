@@ -57,6 +57,8 @@ public class SmithIt extends HttpServlet {
         GearDao dao = new GearDao();
         
         dao.createGear(type, name, fire, cold, lightning, quality, value, id);
+        
+        request.getRequestDispatcher("smithing.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
