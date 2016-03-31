@@ -39,6 +39,7 @@ public class Login extends HttpServlet {
         if (uDao.validateUser(userName, password)) {
             request.getSession().setAttribute("userName", userName);
             request.getSession().setAttribute("user_id", uDao.getUserId(userName));
+            request.getSession().setAttribute("gold", uDao.retrieveGold(uDao.getUserId(userName)));
             request.getRequestDispatcher("home.jsp").forward(request, response);
         }
         else {

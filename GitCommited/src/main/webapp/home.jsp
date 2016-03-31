@@ -44,7 +44,7 @@
         </div>
         <div class="row">
             <div class='center-block'>
-                <h2 class="text-center">You currently have  Gold!</h2>
+                <h2 class="text-center">You currently have ${sessionScope.gold} Gold!</h2>
             </div>
         </div>
         
