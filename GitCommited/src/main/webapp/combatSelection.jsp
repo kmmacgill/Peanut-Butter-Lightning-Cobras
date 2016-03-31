@@ -71,53 +71,27 @@
         <br />
         <br />
         
-        <div class="container narrow">
-            <div class="row player">
-                <div class="col-md-4">
-                    <img src="imgs/profile.jpg" class="img-circle" alt="ProfilePic" width="100px">
-                </div>
-                <div class="col-md-4">
-                    <ul class="text-center">
-                        <li class="large">5 Wins</li>
-                        <li class="large">2 Losses</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
-                </div>
-            </div>
-        </div>
-        <div class="container narrow">
-            <div class="row player">
-                <div class="col-md-4">
-                    <img src="imgs/profile.jpg" class="img-circle" alt="ProfilePic" width="100px">
-                </div>
-                <div class="col-md-4">
-                    <ul class="text-center">
-                        <li class="large">5 Wins</li>
-                        <li class="large">2 Losses</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
+        <c:forEach items="${users}" var="user">
+            <div class="container narrow">
+                <div class="row player">
+                    <div class="col-md-4">
+                        <!--
+                        <img src="imgs/profile.jpg" class="img-circle" alt="ProfilePic" width="100px">
+                        -->
+                        <p class="large text-center">${user.username}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="text-center">
+                            <li class="large">${user.wins} Wins</li>
+                            <li class="large">${user.losses} Losses</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/Combat?foe=${user.id}"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container narrow">
-            <div class="row player">
-                <div class="col-md-4">
-                    <img src="imgs/profile.jpg" class="img-circle" alt="ProfilePic" width="100px">
-                </div>
-                <div class="col-md-4">
-                    <ul class="text-center">
-                        <li class="large">5 Wins</li>
-                        <li class="large">2 Losses</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <a href="/GitCommited/combat.jsp"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
+        
     </body>
 </html>

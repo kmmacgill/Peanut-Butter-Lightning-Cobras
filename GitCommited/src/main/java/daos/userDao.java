@@ -173,7 +173,7 @@ public class userDao {
         
         try {
             // sql
-            String sql = "SELECT * FROM USER";
+            String sql = "SELECT * FROM user";
         
             // no values to bind
             try (PreparedStatement s = c.prepareStatement(sql)) {
