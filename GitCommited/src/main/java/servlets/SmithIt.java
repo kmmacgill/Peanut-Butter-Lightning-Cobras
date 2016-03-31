@@ -38,9 +38,9 @@ public class SmithIt extends HttpServlet {
         int lightning = Integer.parseInt(request.getParameter("lightning"));
         int quality = Integer.parseInt(request.getParameter("quality"));
         
-        int id = 2;
+        //int id = 2;
         
-        //int id = (Integer) request.getSession().getAttribute("user_id");
+        int id = (Integer) request.getSession().getAttribute("user_id");
         
         String type = request.getParameter("type");
         String name = request.getParameter("name");

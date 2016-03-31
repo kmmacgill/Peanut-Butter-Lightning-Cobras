@@ -131,16 +131,17 @@ public class GetCommits {
      * Get the total number of commits made by a user since the last refresh
      * @param username The user's GitHub username
      * @param lastRefresh The last week that it was refreshed
+     * @param newRefresh New date passed by reference
      * @return The number of commits
      */
-    public int getAllCommits(String username, long lastRefresh) {
+    public int getAllCommits(String username, long lastRefresh, Long newRefresh) {
         int total = 0;
         
         List<String> list = getList(username);
         
         if (list != null) {
             for (String s : list) {
-                total += getRepoCommits(username, s, lastRefresh);
+                total += getRepoCommits(username, s, lastRefresh, newRefresh);
             }
             return total;
         }
@@ -152,9 +153,10 @@ public class GetCommits {
      * Get the number of commits given a username and a repo
      * @param username
      * @param repo
+     * @param newRefresh
      * @return 
      */
-    private int getRepoCommits(String username, String repo, long lastRefresh) {
+    private int getRepoCommits(String username, String repo, long lastRefresh, Long newRefresh) {
         
         // return this
         int total = 0;
@@ -220,7 +222,8 @@ public class GetCommits {
                     JSONObject obj = array.getJSONObject(i);
             
                     if (obj.getLong("week") > lastRefresh) {
-                    total += obj.getInt("total");
+                        newRefresh = obj.getLong("week");
+                        total += obj.getInt("total");
                     }
                 }
             }

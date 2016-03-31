@@ -37,8 +37,8 @@ public class Market extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        int userId = 2;
-        //int userId = (Integer) request.getSession().getAttribute("user_id");
+        //int userId = 2;
+        int userId = (Integer) request.getSession().getAttribute("user_id");
         
         GearDao dao = new GearDao();
         
