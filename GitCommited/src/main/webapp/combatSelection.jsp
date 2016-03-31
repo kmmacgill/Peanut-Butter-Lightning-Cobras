@@ -58,7 +58,7 @@
                   <li><a href="home.jsp">HOME</a></li>
                   <li><a href="Market">MARKET</a></li>
                   <li><a href="smithing.jsp">SMITHY</a></li>
-                  <li class="active"><a href="combatSelection.jsp">ARENA</a></li>
+                  <li class="active"><a href="CombatSelection">ARENA</a></li>
                   <li><a href="Inventory">INVENTORY</a></li>
                   <li><a href="Logout">LOG OFF</a></li>
                 </ul>

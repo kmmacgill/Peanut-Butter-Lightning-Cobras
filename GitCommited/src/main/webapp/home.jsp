@@ -60,7 +60,7 @@
                 <h2 class="text-center">Smithy</h2>
             </div>
             <div class='col-md-3'>
-                <a href="/GitCommited/combatSelection.jsp"> <image class="img-responsive center-block" src="imgs/battle-Icon.png" height="275dp" width="275dp"/></a>
+                <a href="/GitCommited/CombatSelection"> <image class="img-responsive center-block" src="imgs/battle-Icon.png" height="275dp" width="275dp"/></a>
                 <h2 class="text-center">Arena</h2>
             </div>
             <div class='col-md-3'>
