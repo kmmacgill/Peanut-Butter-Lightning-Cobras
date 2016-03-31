@@ -204,4 +204,34 @@ public class userDao {
         return list;
     }
     
+    public void setWin(int userId) {
+        
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "UPDATE user SET wins = wins + 1 WHERE id = " + userId;
+            
+            try (PreparedStatement stmnt = c.prepareStatement(sql)) {
+                stmnt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void setLoss(int userId) {
+        
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "UPDATE user SET losses = losses + 1 WHERE id = " + userId;
+            
+            try (PreparedStatement stmnt = c.prepareStatement(sql)) {
+                stmnt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }//end of USERDAO class
