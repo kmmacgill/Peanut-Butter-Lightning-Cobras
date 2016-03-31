@@ -40,7 +40,7 @@ public class userDao {
         
         newguy.setWins(0);
         newguy.setLosses(0);
-        newguy.setRefreshDate(0);
+        newguy.setRefreshDate(l);
         
         Connection c = new MysqlConnecter().getDBConnection();
         
