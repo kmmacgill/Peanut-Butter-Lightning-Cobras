@@ -87,7 +87,7 @@
                         </ul>
                     </div>
                     <div class="col-md-4">
-                        <a href="/Combat?foe=${user.id}"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
+                        <a href="/GitCommited/Combat?foe=${user.id}"><image src="imgs/fightButton.png" height="75dp" width="200dp"/></a>
                     </div>
                 </div>
             </div>

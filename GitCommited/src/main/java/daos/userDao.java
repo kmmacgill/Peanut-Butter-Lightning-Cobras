@@ -122,6 +122,30 @@ public class userDao {
         return goldToReturn;
     }
     
+    public int getUserId(String username) {
+        
+        int userId = 0;
+        
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "SELECT id FROM user where username = ?";
+
+            try (PreparedStatement state = c.prepareStatement(sql)) {
+                state.setString(1, username);
+                ResultSet rs = state.executeQuery();
+                
+                while(rs.next()){
+                    userId = rs.getInt("id");
+                }
+            }         
+            c.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return userId;
+    }
+    
     public int getEquitppedGearId(int userId) {
         String id = "SELECT equipped_gear_id FROM user where id = " + userId;
         return Integer.parseInt(id);
