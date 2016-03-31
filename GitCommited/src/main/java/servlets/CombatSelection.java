@@ -5,21 +5,23 @@
  */
 package servlets;
 
-import daos.MysqlConnecter;
+import daos.userDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objects.User;
 
 /**
  *
  * @author justin
  */
-@WebServlet(name = "Test", urlPatterns = {"/Test"})
-public class Test extends HttpServlet {
+@WebServlet(name = "CombatSelection", urlPatterns = {"/CombatSelection"})
+public class CombatSelection extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,21 +34,15 @@ public class Test extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-            MysqlConnecter c = new MysqlConnecter();
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Test</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + c.getString() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+        // get all the users
+        List<User> users = new userDao().getAllUsers();
+        
+        // set the users on the request
+        request.setAttribute("users", users);
+        
+        // get out
+        request.getRequestDispatcher("combatSelection.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

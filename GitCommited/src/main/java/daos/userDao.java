@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import objects.User;
@@ -159,5 +161,47 @@ public class userDao {
         return returnValue;
     }
     
+    /**
+     * This function returns a list of all users, but the password field is null
+     * @return 
+     */
+    public List<User> getAllUsers() {
+        
+        List<User> list = new ArrayList();
+        
+        Connection c = new MysqlConnecter().getDBConnection();
+        
+        try {
+            // sql
+            String sql = "SELECT * FROM USER";
+        
+            // no values to bind
+            try (PreparedStatement s = c.prepareStatement(sql)) {
+                
+                // execute
+                ResultSet rs = s.executeQuery();
+                
+                
+                while (rs.next()) {
+                    User u = new User();
+                    
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setGHUsername(rs.getString("gh_username"));
+                    u.setRefreshDate(rs.getLong("refresh"));
+                    u.setEquippedGearId(rs.getInt("equipped_gear_id"));
+                    u.setGold(rs.getInt("gold"));
+                    u.setWins(rs.getInt("wins"));
+                    u.setLosses(rs.getInt("losses"));
+                    
+                    list.add(u);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GearDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return list;
+    }
     
 }//end of USERDAO class
