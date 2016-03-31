@@ -31,8 +31,13 @@ public class userDao {
         //hash the password and set it as the user's password.
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12)); // 12 is the number of times it will be hashed, don't go higher or infinite loop due to getting bigger than DB size
         
+        Long l = new Long(0);
+        
         newguy.setPassword(hashed);
-        newguy.setGold(500);
+        newguy.setGold(500 + new GetCommits().getAllCommits(newguy.getUsername(), 0, l));
+        
+        setGold(newguy.getId(), newguy.getGold());
+        
         newguy.setWins(0);
         newguy.setLosses(0);
         newguy.setRefreshDate(0);
@@ -92,6 +97,20 @@ public class userDao {
         try {
             String sql;
             sql = "UPDATE user SET gold = gold + " + amount + " WHERE id = " + userId;
+            
+            try (PreparedStatement stmnt = c.prepareStatement(sql)) {
+                stmnt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void setGold(int userId, int amount) {
+        Connection c = new MysqlConnecter().getDBConnection();
+        try {
+            String sql;
+            sql = "UPDATE user SET gold = " + amount + " WHERE id = " + userId;
             
             try (PreparedStatement stmnt = c.prepareStatement(sql)) {
                 stmnt.executeUpdate();
